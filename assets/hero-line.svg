@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 660" role="img" aria-labelledby="heroTitle">
+  <title id="heroTitle">Комната после уборки: окно, кот на подоконнике, растение, ведро и швабра</title>
+  <rect width="560" height="660" fill="#f1eade"/>
+  <line x1="0" y1="500" x2="560" y2="500" stroke="#d8ccb8" stroke-width="1.5"/>
+
+  <!-- окно -->
+  <rect x="92" y="88" width="250" height="300" fill="#fbf7ee" stroke="#3b5a48" stroke-width="2.5"/>
+  <line x1="217" y1="88" x2="217" y2="388" stroke="#3b5a48" stroke-width="2"/>
+  <line x1="92" y1="238" x2="342" y2="238" stroke="#3b5a48" stroke-width="2"/>
+  <rect x="76" y="388" width="282" height="14" fill="#e4d8c2" stroke="#3b5a48" stroke-width="2"/>
+
+  <!-- шторы -->
+  <path d="M70 78 C102 140 64 208 96 278 C114 318 86 350 96 388" fill="none" stroke="#b6a68c" stroke-width="2"/>
+  <path d="M364 78 C334 140 372 208 340 278 C322 318 350 350 340 388" fill="none" stroke="#b6a68c" stroke-width="2"/>
+
+  <!-- кот на подоконнике -->
+  <g fill="none" stroke="#3b5a48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M263 386 C261 358 267 347 281 347 C295 347 301 360 299 386"/>
+    <circle cx="281" cy="338" r="17"/>
+    <path d="M268 327 L264 312 L276 319"/>
+    <path d="M294 327 L298 312 L286 319"/>
+    <path d="M299 380 C321 378 327 366 319 355"/>
+    <path d="M274 340 h1"/>
+    <path d="M288 340 h1"/>
+  </g>
+
+  <!-- растение -->
+  <g>
+    <path d="M439 430 C428 382 398 360 390 330 C420 334 440 366 439 430" fill="#b9cdb9" stroke="#3b5a48" stroke-width="2"/>
+    <path d="M439 430 C448 372 470 346 492 320 C497 356 470 396 439 430" fill="#c8d9c7" stroke="#3b5a48" stroke-width="2"/>
+    <path d="M439 430 C438 380 450 340 444 300 C466 330 462 382 439 430" fill="#adc4ad" stroke="#3b5a48" stroke-width="2"/>
+    <path d="M400 430 h78 l-10 74 h-58 z" fill="#d9a07e" stroke="#3b5a48" stroke-width="2"/>
+    <line x1="398" y1="430" x2="480" y2="430" stroke="#3b5a48" stroke-width="2"/>
+  </g>
+
+  <!-- ведро и швабра -->
+  <g>
+    <path d="M96 440 h88 l-12 66 h-64 z" fill="#c9d8ca" stroke="#3b5a48" stroke-width="2"/>
+    <line x1="92" y1="440" x2="188" y2="440" stroke="#3b5a48" stroke-width="2.5"/>
+    <path d="M106 440 C110 410 170 410 174 440" fill="none" stroke="#3b5a48" stroke-width="2"/>
+    <line x1="152" y1="440" x2="208" y2="270" stroke="#8a6b4a" stroke-width="4"/>
+    <path d="M208 270 l-14 -8 M208 270 l-4 14" stroke="#8a6b4a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M152 440 C144 456 138 464 132 474 M156 442 C150 458 148 466 146 478 M162 442 C160 456 160 468 160 480" fill="none" stroke="#b9a98f" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- коврик -->
+  <ellipse cx="290" cy="540" rx="180" ry="22" fill="#e7ddca"/>
+  <ellipse cx="290" cy="540" rx="180" ry="22" fill="none" stroke="#d8ccb8" stroke-width="1.5"/>
+
+  <!-- блики -->
+  <g stroke="#b98a35" stroke-width="2" stroke-linecap="round">
+    <path d="M420 120 v18 M411 129 h18"/>
+    <path d="M468 172 v12 M462 178 h12"/>
+    <path d="M386 196 v10 M381 201 h10"/>
+  </g>
+</svg>

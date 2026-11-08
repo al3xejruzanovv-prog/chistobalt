@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЧистоБалт — клининг в Калининграде: уборка квартир, домов и офисов</title>
+  <meta name="description" content="Клининговая компания в Калининграде. Генеральная уборка, кухня, ванная, окна, бытовая техника, офисы и коммерческие помещения. Только Калининград, без выездов по области.">
+  <meta name="theme-color" content="#25503c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Калининград · работаем только в черте города</span>
+      <span><a href="tel:+70000000000">+7 (000) 000-00-00</a></span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__name">Чисто<span>Балт</span></span>
+        <span class="logo__sub">клининг в Калининграде</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="services.html">Услуги и цены</a>
+        <a href="about.html">О компании</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+
+      <div class="header__phone">
+        <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+        <small>Калининград</small>
+      </div>
+
+      <a class="btn btn--primary btn--sm header__cta" href="contacts.html#form">Оставить заявку</a>
+
+      <button class="btn theme-toggle" type="button" id="themeToggle" aria-label="Переключить тему оформления" aria-pressed="false">🌙</button>
+
+      <button class="burger" type="button" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="overline">Клининговая компания в Калининграде</span>
+          <h1>Уборка квартир, домов и офисов <em>в Калининграде</em></h1>
+          <p class="hero__lead">Генеральная уборка, кухня, ванная и санузел, окна и балконы, бытовая техника, офисы и коммерческие помещения. Полный список услуг и цены — в прайс-листе.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="services.html">Смотреть услуги и цены</a>
+            <a class="btn btn--secondary" href="tel:+70000000000">Позвонить: +7 (000) 000-00-00</a>
+          </div>
+          <p class="hero__note">Работаем только в Калининграде. За город и в другие города области не выезжаем.</p>
+        </div>
+
+        <div class="hero__media">
+          <figure class="hero__figure">
+            <img src="assets/hero-line.svg" alt="Комната после уборки: окно, кот на подоконнике, растение и ведро со шваброй" width="560" height="660">
+            <figcaption>Убираем квартиры, дома, офисы и коммерческие помещения. Выезд — в пределах Калининграда.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div>
+            <span class="overline">Услуги</span>
+            <h2>Что можно заказать</h2>
+            <p class="section__sub">Шесть позиций из прайса. Остальные услуги, включая мытьё техники, уборку подъездов и коммерческих помещений, — на странице цен.</p>
+          </div>
+          <a class="link-more" href="services.html">Все услуги и цены</a>
+        </div>
+
+        <div class="service-list">
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Генеральная уборка</h3>
+              <p>Основная уборка помещения по прайсу. Точный объём работ зависит от площади и состояния.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">3 ч</span>
+              <span class="service-row__price">от 1 500 ₽</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Уборка кухни</h3>
+              <p>Кухня отдельно от остального помещения: поверхности, техника и рабочая зона.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">3 ч</span>
+              <span class="service-row__price">от 1 500 ₽</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Уборка ванной комнаты</h3>
+              <p>Ванная и санузел: сантехника, плитка, зеркала и поверхности.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">2 ч</span>
+              <span class="service-row__price">от 1 000 ₽</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Мытьё окон</h3>
+              <p>Стёкла, рамы и подоконники. Стоимость считается за квадратный метр и зависит от доступа.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">2 ч</span>
+              <span class="service-row__price">Цена договорная</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Уборка офиса</h3>
+              <p>Офисы и небольшие коммерческие помещения. Цена указана за квадратный метр.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">2 ч</span>
+              <span class="service-row__price">130 ₽ / м²</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Уборка после выезда квартирантов</h3>
+              <p>Помещение после жильцов: поверхности, полы, санузел и кухня. Цена за квадратный метр.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">2 ч</span>
+              <span class="service-row__price">от 150 ₽ / м²</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="overline">Как заказать</span>
+          <h2>От заявки до уборки</h2>
+          <p class="section__sub">Без анкет на десять страниц: достаточно сказать, что нужно убрать и где.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step__num">01</div>
+            <h3>Заявка</h3>
+            <p>Позвоните или оставьте заявку на сайте. Напишите, какая услуга нужна, площадь и удобное время.</p>
+          </article>
+
+          <article class="step">
+            <div class="step__num">02</div>
+            <h3>Уточнение</h3>
+            <p>Обсудим состояние помещения и детали: этаж, доступ, тип окон, количество техники.</p>
+          </article>
+
+          <article class="step">
+            <div class="step__num">03</div>
+            <h3>Стоимость</h3>
+            <p>Назовём цену по прайсу и согласуем её до начала работ. Если объём больше — обсудим доплату заранее.</p>
+          </article>
+
+          <article class="step">
+            <div class="step__num">04</div>
+            <h3>Уборка</h3>
+            <p>Приезжаем в согласованное время в пределах Калининграда. За город не выезжаем.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="overline">О ценах</span>
+          <h2>Что важно знать</h2>
+        </div>
+
+        <div class="principles">
+          <article class="principle">
+            <span class="principle__num">01</span>
+            <div>
+              <h3>Цены «от»</h3>
+              <p>Это минимальная стоимость услуги. Итоговая зависит от площади, состояния помещения и объёма работы.</p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">02</span>
+            <div>
+              <h3>Расчёт за м², этаж или день</h3>
+              <p>У части услуг цена считается не за помещение целиком, а по единице. Она указана в примечании к строке прайса.</p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">03</span>
+            <div>
+              <h3>Договорная стоимость</h3>
+              <p>Мытьё окон и люстр оцениваем после уточнения размера, количества и доступа к конструкции.</p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">04</span>
+            <div>
+              <h3>Только Калининград</h3>
+              <p>Выезжаем в пределах города. В другие города и посёлки области не ездим — дорога не входит в цену.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="overline">Вопросы</span>
+          <h2>Коротко о важном</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Вы работаете за городом?</summary>
+            <div class="faq__answer">Нет. Работаем только в Калининграде, в пределах города. В Зеленоградск, Светлогорск, Пионерский и другие населённые пункты области не выезжаем.</div>
+          </details>
+
+          <details>
+            <summary>Почему у некоторых услуг цена указана «от»?</summary>
+            <div class="faq__answer">Это минимальная стоимость. Итоговая цена зависит от площади, состояния помещения и объёма работы. Точную стоимость согласуем до начала уборки.</div>
+          </details>
+
+          <details>
+            <summary>Что значит «цена договорная»?</summary>
+            <div class="faq__answer">Для мытья окон и люстр стоимость зависит от размера, количества, высоты и доступа. Обсудим детали и назовём цену до начала работ.</div>
+          </details>
+
+          <details>
+            <summary>Как записаться на уборку?</summary>
+            <div class="faq__answer">Позвоните по телефону или оставьте заявку на странице контактов. Уточним услугу, площадь и удобное время, после чего согласуем стоимость.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta">
+          <div class="cta__grid">
+            <div>
+              <h2>Посмотрите полный прайс</h2>
+              <p>Там все услуги и цены: от генеральной уборки и мытья техники до уборки офисов, подъездов и помещений после пожара.</p>
+            </div>
+            <div class="cta__actions">
+              <a class="cta__phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
+              <a class="btn btn--light" href="services.html">Услуги и цены</a>
+              <span class="cta__small">Калининград · выезд по городу</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="index.html">
+            <span class="logo__name">Чисто<span>Балт</span></span>
+            <span class="logo__sub">клининг в Калининграде</span>
+          </a>
+          <p class="footer__about">Уборка квартир, домов, офисов и коммерческих помещений. Работаем только в Калининграде.</p>
+        </div>
+
+        <div>
+          <h3>Разделы</h3>
+          <ul class="footer__list">
+            <li><a href="services.html">Услуги и цены</a></li>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="contacts.html#form">Оставить заявку</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Услуги</h3>
+          <ul class="footer__list">
+            <li><a href="services.html">Генеральная уборка</a></li>
+            <li><a href="services.html">Уборка кухни и ванной</a></li>
+            <li><a href="services.html">Мытьё окон и балконов</a></li>
+            <li><a href="services.html">Уборка офисов</a></li>
+            <li><a href="services.html">Уборка после выезда квартирантов</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Контакты</h3>
+          <ul class="footer__list">
+            <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+            <li><a href="mailto:info@chistobalt.ru">info@chistobalt.ru</a></li>
+            <li>Калининград</li>
+            <li>Выезд только по городу</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>© <span id="year">2026</span> ЧистоБалт. Все права защищены.</div>
+        <div class="footer__legal">
+          <a href="privacy.html">Политика обработки персональных данных</a>
+          <a href="privacy.html#consent">Согласие на обработку данных</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookieBar" role="dialog" aria-label="Использование файлов cookie" aria-live="polite">
+    <p>Мы используем файлы cookie, чтобы сайт работал корректно. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="privacy.html#cookies">Политикой обработки персональных данных</a>.</p>
+    <button class="btn btn--primary btn--sm" type="button" id="cookieAccept">Понятно</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

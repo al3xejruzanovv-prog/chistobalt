@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Контакты — ЧистоБалт, клининг в Калининграде</title>
+  <meta name="description" content="Контакты клининговой компании ЧистоБалт в Калининграде: телефон, почта и форма заявки на уборку.">
+  <meta name="theme-color" content="#25503c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Калининград · работаем только в черте города</span>
+      <span><a href="tel:+70000000000">+7 (000) 000-00-00</a></span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__name">Чисто<span>Балт</span></span>
+        <span class="logo__sub">клининг в Калининграде</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="services.html">Услуги и цены</a>
+        <a href="about.html">О компании</a>
+        <a href="contacts.html" class="is-current" aria-current="page">Контакты</a>
+      </nav>
+
+      <div class="header__phone">
+        <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+        <small>Калининград</small>
+      </div>
+
+      <a class="btn btn--primary btn--sm header__cta" href="#form">Оставить заявку</a>
+
+      <button class="btn theme-toggle" type="button" id="themeToggle" aria-label="Переключить тему оформления" aria-pressed="false">🌙</button>
+
+      <button class="burger" type="button" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a>
+          <span>/</span>
+          <span>Контакты</span>
+        </nav>
+        <h1>Контакты</h1>
+        <p class="page-hero__lead">Позвоните или оставьте заявку — обсудим услугу, площадь и удобное время, после чего назовём стоимость.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contacts-grid">
+        <div>
+          <div class="contact-block">
+            <p class="contact-block__label">Телефон</p>
+            <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+            <p class="contact-note">Позвоните, чтобы уточнить услугу, площадь и время уборки.</p>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-block__label">Почта</p>
+            <a href="mailto:info@chistobalt.ru">info@chistobalt.ru</a>
+            <p class="contact-note">Для вопросов по заявкам и документам.</p>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-block__label">Город</p>
+            <p>Калининград</p>
+            <p class="contact-note">Выезжаем только в пределах города. За город и в другие населённые пункты области не ездим.</p>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-block__label">Заявка</p>
+            <p>Через форму на этой странице</p>
+            <p class="contact-note">Укажите имя, телефон и задачу. Свяжемся по указанному номеру, чтобы уточнить детали.</p>
+          </div>
+
+          <div class="map-card">
+            <strong>Перед заказом</strong>
+            Посмотрите <a href="services.html">прайс-лист</a>: там указаны услуги, время и ориентировочные цены. Если нужной позиции нет или остались вопросы — позвоните.
+          </div>
+        </div>
+
+        <div class="form-card" id="form">
+          <div id="formWrap">
+            <h2 class="form-card__title">Оставить заявку</h2>
+            <p class="form-card__hint">Заполните имя и телефон, при желании добавьте комментарий о задаче.</p>
+
+            <p class="form__error" id="formError" role="alert"></p>
+
+            <form class="form" id="leadForm" novalidate>
+              <label class="field">
+                <span class="field__label">Как к вам обращаться</span>
+                <input class="field__control" type="text" id="leadName" name="name" placeholder="Имя" autocomplete="name" required>
+              </label>
+
+              <label class="field">
+                <span class="field__label">Телефон</span>
+                <input class="field__control" type="tel" id="leadPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required>
+              </label>
+
+              <label class="field">
+                <span class="field__label">Комментарий — необязательно</span>
+                <textarea class="field__control" id="leadComment" name="comment" rows="4" placeholder="Адрес, площадь, нужная услуга и удобное время"></textarea>
+              </label>
+
+              <label class="consent">
+                <input type="checkbox" id="leadConsent" name="consent" required>
+                <span>Я даю согласие на обработку персональных данных и принимаю <a href="privacy.html" target="_blank" rel="noopener">Политику обработки персональных данных</a>.</span>
+              </label>
+
+              <button class="btn btn--primary btn--block" type="submit">Отправить заявку</button>
+              <p class="form__foot">Не передаём контакты третьим лицам и не используем их для рассылок без вашего согласия.</p>
+            </form>
+          </div>
+
+          <div class="form-success" id="formSuccess">
+            <h3>Заявка отправлена</h3>
+            <p>Спасибо. Свяжемся с вами по указанному телефону, чтобы уточнить детали уборки.</p>
+            <button class="btn btn--secondary btn--sm" type="button" id="formReset">Отправить ещё одну</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta">
+          <div class="cta__grid">
+            <div>
+              <h2>Удобнее позвонить?</h2>
+              <p>Позвоните — сразу обсудим задачу и скажем стоимость по прайсу. Или оставьте заявку, и мы свяжемся с вами.</p>
+            </div>
+            <div class="cta__actions">
+              <a class="cta__phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
+              <a class="btn btn--light" href="services.html">Услуги и цены</a>
+              <span class="cta__small">Калининград · выезд по городу</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="index.html">
+            <span class="logo__name">Чисто<span>Балт</span></span>
+            <span class="logo__sub">клининг в Калининграде</span>
+          </a>
+          <p class="footer__about">Уборка квартир, домов, офисов и коммерческих помещений. Работаем только в Калининграде.</p>
+        </div>
+
+        <div>
+          <h3>Разделы</h3>
+          <ul class="footer__list">
+            <li><a href="services.html">Услуги и цены</a></li>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="contacts.html#form">Оставить заявку</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Услуги</h3>
+          <ul class="footer__list">
+            <li><a href="services.html">Генеральная уборка</a></li>
+            <li><a href="services.html">Уборка кухни и ванной</a></li>
+            <li><a href="services.html">Мытьё окон и балконов</a></li>
+            <li><a href="services.html">Уборка офисов</a></li>
+            <li><a href="services.html">Уборка после выезда квартирантов</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Контакты</h3>
+          <ul class="footer__list">
+            <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+            <li><a href="mailto:info@chistobalt.ru">info@chistobalt.ru</a></li>
+            <li>Калининград</li>
+            <li>Выезд только по городу</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>© <span id="year">2026</span> ЧистоБалт. Все права защищены.</div>
+        <div class="footer__legal">
+          <a href="privacy.html">Политика обработки персональных данных</a>
+          <a href="privacy.html#consent">Согласие на обработку данных</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookieBar" role="dialog" aria-label="Использование файлов cookie" aria-live="polite">
+    <p>Мы используем файлы cookie, чтобы сайт работал корректно. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="privacy.html#cookies">Политикой обработки персональных данных</a>.</p>
+    <button class="btn btn--primary btn--sm" type="button" id="cookieAccept">Понятно</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
