@@ -737,8 +737,8 @@ h3 {
 
 .reviews {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0 40px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
   border-top: 1px solid var(--line);
 }
 
@@ -767,6 +767,13 @@ h3 {
   font-size: 12px;
   font-weight: 400;
   color: var(--muted);
+}
+
+.review__stars {
+  margin-bottom: 10px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--green);
 }
 
 /* ---------- FAQ ---------- */
