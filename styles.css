@@ -4,21 +4,24 @@
    ========================================================= */
 
 :root {
-  --paper: #f5f1e8;
-  --surface: #fffdf8;
-  --ink: #23211c;
-  --ink-soft: #3c382f;
-  --muted: #6d675c;
-  --line: #ddd5c6;
-  --line-strong: #c6bcaa;
-  --green: #25503c;
-  --green-dark: #18382a;
-  --green-soft: #e8eee7;
-  --terra: #b45a34;
-  --gold: #b98a35;
-  --danger: #a33a2a;
-  --serif: Georgia, "Times New Roman", "PT Serif", serif;
+  --paper: #ffffff;
+  --surface: #f4f6f8;
+  --card: #ffffff;
+  --ink: #0f1c24;
+  --ink-soft: #24333d;
+  --muted: #5f6c75;
+  --line: #e4e9ec;
+  --line-strong: #ccd6db;
+  --green: #0b7689;
+  --green-dark: #09596b;
+  --green-soft: #e5f4f7;
+  --terra: #09596b;
+  --gold: #d19b2f;
+  --danger: #cc3f3f;
+  --serif: var(--sans);
   --sans: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+  --shadow: 0 1px 2px rgba(15, 28, 36, 0.05), 0 12px 32px -20px rgba(15, 28, 36, 0.2);
+  --radius: 16px;
   --container: 1120px;
 }
 
@@ -112,9 +115,9 @@ ol {
 h1,
 h2,
 h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 h1 {
@@ -836,7 +839,7 @@ h3 {
 .footer {
   padding: 52px 0 24px;
   background: var(--green-dark);
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .footer__grid {
@@ -854,7 +857,7 @@ h3 {
 }
 
 .footer .logo__sub {
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .footer__about {
@@ -862,7 +865,7 @@ h3 {
   margin-top: 16px;
   font-size: 13px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .footer h3 {
@@ -872,7 +875,7 @@ h3 {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .footer__list {
@@ -897,7 +900,7 @@ h3 {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 11.5px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .footer__legal {
@@ -907,7 +910,7 @@ h3 {
 }
 
 .footer__legal a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 
@@ -1009,6 +1012,38 @@ h3 {
   font-size: 11px;
   font-weight: 400;
   color: var(--muted);
+}
+
+/* Современный слой: прайс как карточка на светлой странице */
+.price-table {
+  border: 1px solid var(--line);
+  border-top-color: var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.price-row,
+.price-row--head {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.price-row--head {
+  background: var(--surface);
+}
+
+.price-row:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .price-row,
+  .price-row--head {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 }
 
 .price-row__note {
@@ -2165,19 +2200,20 @@ input[type="range"]::-moz-range-thumb {
 /* ---------- Тёмная тема ---------- */
 
 [data-theme="dark"] {
-  --paper: #1c1914;
-  --surface: #23201a;
-  --ink: #f1eade;
-  --ink-soft: #e3dccb;
-  --muted: #9d9486;
-  --line: #3c3429;
-  --line-strong: #5d5244;
-  --green: #5a8a6e;
-  --green-dark: #3d644c;
-  --green-soft: #2a2f27;
-  --terra: #d4835a;
-  --gold: #d9a07e;
-  --danger: #c96b5a;
+  --paper: #0f1417;
+  --surface: #161c21;
+  --card: #1a2025;
+  --ink: #edf2f4;
+  --ink-soft: #d6dee2;
+  --muted: #8fa0aa;
+  --line: #293238;
+  --line-strong: #45525a;
+  --green: #46c8dc;
+  --green-dark: #0e3d47;
+  --green-soft: #12333b;
+  --terra: #63d3e4;
+  --gold: #e0b447;
+  --danger: #e26969;
 
   background-color: var(--paper);
   color: var(--ink);
@@ -2188,7 +2224,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 [data-theme="dark"] .header {
-  background: rgba(28, 25, 20, 0.97);
+  background: rgba(15, 20, 23, 0.9);
   border-bottom-color: var(--line);
 }
 
@@ -2202,8 +2238,12 @@ input[type="range"]::-moz-range-thumb {
 [data-theme="dark"] .footer__grid > div > p,
 [data-theme="dark"] .price-table,
 [data-theme="dark"] .section--alt {
-  background: var(--surface);
+  background: var(--card);
   border-color: var(--line);
+}
+
+[data-theme="dark"] .statbar {
+  background: var(--surface);
 }
 
 [data-theme="dark"] .cookie {
@@ -2214,7 +2254,7 @@ input[type="range"]::-moz-range-thumb {
 
 [data-theme="dark"] .legal__intro,
 [data-theme="dark"] .estimate-note {
-  background: #2a2720;
+  background: #1c2429;
 }
 
 [data-theme="dark"] img[src*="hero-line"] {
@@ -2861,4 +2901,485 @@ html {
 .map-embed iframe {
   display: block;
   border: 0;
+}
+
+/* =========================================================
+   Современный слой поверх базы: светлая чистая база,
+   скруглённые карточки, мягкие тени, пилюли-кнопки
+   ========================================================= */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+}
+
+[data-theme="dark"] .header {
+  background: rgba(15, 20, 23, 0.88);
+}
+
+/* ---------- Кнопки ---------- */
+
+.btn {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.btn--primary {
+  box-shadow: 0 8px 20px -12px rgba(12, 132, 153, 0.75);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 10px 24px -12px rgba(9, 95, 112, 0.85);
+}
+
+.btn--primary:active,
+.btn--secondary:active {
+  transform: translateY(1px);
+}
+
+.btn--secondary {
+  background: var(--card);
+  box-shadow: 0 1px 2px rgba(15, 28, 36, 0.06);
+}
+
+.btn--secondary:hover {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .btn--secondary {
+  background: var(--surface);
+}
+
+.theme-toggle {
+  border-radius: 999px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  border-bottom: 0;
+  background: var(--green-soft);
+}
+
+.hero__figure,
+.calc {
+  background: var(--card);
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero__figure {
+  padding: 12px;
+}
+
+.hero__figure img {
+  border-radius: 12px;
+}
+
+.hero__note {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted);
+}
+
+.hero h1 em {
+  color: var(--green);
+}
+
+/* ---------- Калькулятор ---------- */
+
+.calc {
+  padding: 24px;
+}
+
+.calc select,
+.calc input[type="number"],
+.calc input[type="text"],
+.calc input[type="tel"] {
+  border-radius: 10px;
+  border-color: var(--line);
+  background: var(--paper);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.calc select:hover,
+.calc input[type="number"]:hover,
+.calc input[type="text"]:hover,
+.calc input[type="tel"]:hover {
+  border-color: var(--line-strong);
+}
+
+.calc__extras {
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.calc__total {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--green-soft);
+}
+
+.calc__success {
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Полоса фактов ---------- */
+
+.statbar {
+  background: transparent;
+  border-top: 0;
+}
+
+[data-theme="dark"] .statbar {
+  background: transparent;
+  border-top: 0;
+}
+
+.statbar__list li {
+  border-right-color: var(--line);
+}
+
+.statbar__value {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- «Что входит»: пилюли-вкладки ---------- */
+
+.included {
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.included__tabs {
+  gap: 6px;
+  padding: 12px 12px 0;
+  border-bottom: 0;
+}
+
+.included__tab {
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.included__tab:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.included__tab.is-active {
+  background: var(--green);
+  color: #fff;
+  border-bottom-color: transparent;
+}
+
+[data-theme="dark"] .included__tab.is-active {
+  background: var(--green);
+  color: #0f1417;
+}
+
+.included__panel.is-active {
+  padding: 4px 12px 10px;
+}
+
+.worklist {
+  padding: 0 8px;
+}
+
+.worklist details {
+  border-radius: 12px;
+}
+
+.worklist summary {
+  border-radius: 12px;
+  padding: 13px 14px;
+  transition: background-color 0.15s ease;
+}
+
+.worklist summary:hover {
+  background: var(--surface);
+}
+
+.worklist details[open] summary {
+  background: var(--surface);
+}
+
+.worklist__text {
+  padding: 0 14px 14px;
+}
+
+.included__note {
+  margin-top: 18px;
+}
+
+/* ---------- Карточки доп-услуг и помещений ---------- */
+
+.extras,
+.rooms {
+  gap: 18px;
+}
+
+.extra-card,
+.room-card {
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.extra-card:hover,
+.room-card:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -20px rgba(15, 28, 36, 0.28);
+}
+
+.room-card__badge {
+  border-radius: 999px;
+  border-color: transparent;
+}
+
+.room-card h3 {
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .extras,
+  .rooms {
+    gap: 12px;
+  }
+}
+
+/* ---------- Список основных услуг: карточка-контейнер ---------- */
+
+.service-list {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.service-row {
+  padding: 22px 24px;
+}
+
+.service-row:hover {
+  background: var(--surface);
+}
+
+.service-row:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .service-row {
+    padding: 18px 16px;
+    gap: 12px 20px;
+  }
+}
+
+/* ---------- Принципы и шаги ---------- */
+
+.principle__num {
+  font-weight: 800;
+}
+
+.steps {
+  gap: 16px;
+  border-top: 0;
+}
+
+.step,
+.step:last-child {
+  padding: 0;
+  border: 0;
+}
+
+.step {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 22px !important;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.step:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+
+.step__num {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- FAQ: карточки ---------- */
+
+.faq {
+  border-top: 0;
+}
+
+.faq details {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  margin-bottom: 10px;
+  padding: 2px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s ease;
+}
+
+.faq details:hover,
+.faq details[open] {
+  border-color: var(--green);
+}
+
+.faq summary {
+  padding: 14px 2px;
+}
+
+.faq summary::after {
+  color: var(--green);
+}
+
+@media (max-width: 640px) {
+  .faq details {
+    padding: 0 14px;
+  }
+}
+
+/* ---------- CTA и прочие поверхности ---------- */
+
+.cta {
+  border-radius: 20px;
+  background: var(--green-dark);
+  box-shadow: 0 24px 48px -24px rgba(9, 95, 112, 0.6);
+}
+
+.cta p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .cta {
+  background: var(--green-dark);
+}
+
+.map-embed,
+.slot {
+  border-radius: var(--radius);
+}
+
+.map-embed {
+  box-shadow: var(--shadow);
+}
+
+.cookie {
+  border-radius: 16px;
+  box-shadow: 0 12px 32px -16px rgba(15, 28, 36, 0.35);
+}
+
+.price-photo__figure img {
+  border-radius: 0;
+}
+
+.price-photo h3 {
+  font-weight: 700;
+}
+
+/* Кнопки-ссылки на внешние шаблоны-заглушки сохраняют акцент */
+.price-photo__secondary,
+.btn--light {
+  border-radius: 999px;
+}
+
+/* ---------- Прочие страницы: карточная поверхность ---------- */
+
+.guarantee,
+.form-card,
+.map-card,
+.requisites,
+.legal__requisites,
+.legal__intro,
+.estimate-note {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .guarantee,
+[data-theme="dark"] .form-card,
+[data-theme="dark"] .map-card,
+[data-theme="dark"] .requisites,
+[data-theme="dark"] .legal__requisites,
+[data-theme="dark"] .legal__intro,
+[data-theme="dark"] .estimate-note {
+  background: var(--card);
+  border-color: var(--line);
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  border-radius: 10px;
+}
+
+.page-hero,
+.hero,
+.section--alt {
+  border-bottom: 0;
+}
+
+.page-hero {
+  background: var(--green-soft);
+  margin-bottom: 0;
+}
+
+.breadcrumbs {
+  opacity: 0.95;
 }
