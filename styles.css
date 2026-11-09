@@ -3383,3 +3383,150 @@ body {
 .breadcrumbs {
   opacity: 0.95;
 }
+
+/* =========================================================
+   Hero с фото + большой калькулятор «квадратом»
+   ========================================================= */
+
+.hero--photo {
+  position: relative;
+  padding: clamp(72px, 11vw, 128px) 0 clamp(64px, 9vw, 112px);
+  background-image: url("assets/hero-apartment.jpg");
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.hero--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(9, 32, 40, 0.9) 0%, rgba(9, 32, 40, 0.74) 55%, rgba(9, 32, 40, 0.45) 100%);
+}
+
+.hero--photo .overline {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero--photo h1 {
+  color: #ffffff;
+  max-width: 640px;
+}
+
+.hero--photo h1 em {
+  color: #8fdde9;
+}
+
+.hero--photo .hero__lead {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero--photo .hero__note {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.hero--photo .btn--secondary {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  box-shadow: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.hero--photo .btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ---------- Большой калькулятор «квадратом» (отдельный блок под hero) ---------- */
+
+.calc--big {
+  border: 0;
+  display: block;
+  border-radius: 28px;
+  background: var(--card);
+  padding: clamp(28px, 4.5vw, 48px);
+  box-shadow: 0 2px 4px rgba(15, 28, 36, 0.05), 0 24px 64px -32px rgba(15, 28, 36, 0.35);
+}
+
+.raschet {
+  background: var(--paper);
+}
+
+.calc__head {
+  max-width: 660px;
+  margin: 0 0 28px;
+}
+
+.calc__head h2 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3.2vw, 36px);
+}
+
+.calc__head p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.calc__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 26px clamp(30px, 4vw, 52px);
+  align-items: start;
+}
+
+.calc__col--side {
+  padding: clamp(18px, 2.4vw, 28px);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.calc__success {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+  .calc--big {
+    max-width: none;
+  }
+
+  .calc__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc__col--side {
+    padding: 18px;
+  }
+}
+
+/* ---------- Фото в блоке «Назовём цену по фото» ---------- */
+
+.price-photo {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+}
+
+.price-photo__figure {
+  width: 100%;
+}
+
+.price-photo__figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 760px) {
+  .price-photo {
+    grid-template-columns: 1fr;
+  }
+}

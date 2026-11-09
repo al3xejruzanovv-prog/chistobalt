@@ -47,9 +47,9 @@
   </header>
 
   <main>
-    <!-- ============ HERO + КАЛЬКУЛЯТОР (как у референса: форма поверх обложки) ============ -->
-    <section class="hero hero--calc">
-      <div class="container hero__grid hero__grid--calc">
+    <!-- ============ HERO на фото чистой квартиры (как у референса) ============ -->
+    <section class="hero hero--photo">
+      <div class="container hero__grid">
         <div>
           <span class="overline">Клининговые услуги в Калининграде</span>
           <h1>Уборка квартир, домов и офисов <em>в Калининграде</em></h1>
@@ -57,16 +57,25 @@
 
           <div class="hero__actions">
             <a class="btn btn--primary" href="services.html">Смотреть услуги и цены</a>
-            <a class="btn btn--secondary" href="#calcForm">Рассчитать онлайн</a>
+            <a class="btn btn--secondary hero__btn-ghost" href="#raschet">Рассчитать онлайн</a>
           </div>
           <p class="hero__note">Стоимость согласуем до начала работ. Работаем только в Калининграде — за город и в область не выезжаем.</p>
         </div>
+      </div>
+    </section>
 
-        <div class="hero__media">
-          <div class="calc" id="calc">
-            <p class="calc__title">Рассчитать уборку</p>
+    <!-- ============ БОЛЬШОЙ КАЛЬКУЛЯТОР: отдельный «квадрат» со скруглёнными углами ============ -->
+    <section class="section raschet" id="raschet">
+      <div class="container">
+        <div class="calc calc--big">
+          <div class="calc__head">
+            <span class="overline">Онлайн-расчёт</span>
+            <h2>Рассчитайте уборку за минуту</h2>
+            <p>Выберите услугу и состав работ — покажем минимальную стоимость по нашему прайс-листу.</p>
+          </div>
 
-            <form id="calcForm" novalidate>
+          <form id="calcForm" class="calc__grid" novalidate>
+            <div class="calc__col">
               <div class="calc__field">
                 <label for="calcService">Основная услуга</label>
                 <select id="calcService">
@@ -106,7 +115,9 @@
                 <label><input type="checkbox" data-negotiable data-name="мытьё окон"> Окна · договорная</label>
                 <label><input type="checkbox" data-negotiable data-name="мытьё люстры"> Люстра · договорная</label>
               </fieldset>
+            </div>
 
+            <div class="calc__col calc__col--side">
               <p class="calc__total">
                 Ориентировочно: <strong id="calcTotal">от 1 500 ₽</strong>
                 <span id="calcNegotiable" class="calc__negotiable" hidden>+ позиции по согласованию</span>
@@ -131,14 +142,14 @@
               <p class="calc__error" id="calcError" aria-live="polite"></p>
 
               <button class="btn btn--primary btn--block" type="submit">Заказать</button>
-            </form>
+            </div>
 
             <div class="calc__success" id="calcSuccess" hidden tabindex="-1">
               <p><strong>Расчёт принят!</strong></p>
               <p>Итог: <span id="calcSuccessSummary"></span></p>
               <p>Мы свяжемся с вами для уточнения деталей. Если вопрос срочный — <a href="tel:+70000000000">позвоните нам</a>.</p>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
@@ -435,7 +446,7 @@
             </div>
           </div>
           <figure class="price-photo__figure">
-            <img src="assets/hero-line.svg" alt="Иллюстрация: уборка комнаты" width="360" height="360">
+            <img src="assets/clean-room.jpg" alt="Светлая чистая комната после уборки" width="640" height="480">
             <figcaption>Работаем без ботов — вас слушает человек.</figcaption>
           </figure>
         </div>
