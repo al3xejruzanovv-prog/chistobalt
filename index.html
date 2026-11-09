@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ЧистоБалт — клининг в Калининграде: уборка квартир, домов и офисов</title>
-  <meta name="description" content="Клининговая компания в Калининграде. Генеральная уборка, кухня, ванная, окна, бытовая техника, офисы и коммерческие помещения. Только Калининград, без выездов по области.">
+  <title>ЧистоБалт — клининговые услуги в Калининграде: уборка квартир, домов и офисов</title>
+  <meta name="description" content="Клининговые услуги в Калининграде. Что входит в уборку, отдельные помещения, окна, техника, офисы и коммерческие помещения. Прайс-лист из 26 услуг, цены согласовываем до начала работ. Только Калининград, без выездов по области.">
   <meta name="theme-color" content="#25503c">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -50,35 +50,315 @@
     <section class="hero">
       <div class="container hero__grid">
         <div>
-          <span class="overline">Клининговая компания в Калининграде</span>
+          <span class="overline">Клининговые услуги в Калининграде</span>
           <h1>Уборка квартир, домов и офисов <em>в Калининграде</em></h1>
-          <p class="hero__lead">Генеральная уборка, кухня, ванная и санузел, окна и балконы, бытовая техника, офисы и коммерческие помещения. Полный список услуг и цены — в прайс-листе.</p>
+          <p class="hero__lead">«ЧистоБалт» — уборка помещений по прайс-листу из 26 позиций: генеральная уборка, кухня и ванная, окна и балконы, бытовая техника, офисы и коммерческие помещения. Полный список работ и цены — на странице прайса.</p>
 
           <div class="hero__actions">
             <a class="btn btn--primary" href="services.html">Смотреть услуги и цены</a>
             <a class="btn btn--secondary" href="tel:+70000000000">Позвонить: +7 (000) 000-00-00</a>
           </div>
-          <p class="hero__note">Работаем только в Калининграде. За город и в другие города области не выезжаем.</p>
+          <p class="hero__note">Стоимость согласуем до начала работ. Работаем только в Калининграде — за город и в область не выезжаем.</p>
         </div>
 
         <div class="hero__media">
           <figure class="hero__figure">
             <img src="assets/hero-line.svg" alt="Комната после уборки: окно, кот на подоконнике, растение и ведро со шваброй" width="560" height="660">
-            <figcaption>Убираем квартиры, дома, офисы и коммерческие помещения. Выезд — в пределах Калининграда.</figcaption>
+            <figcaption>Генеральная уборка, кухни, ванные, окна, техника, офисы и подъезды. Выезд — в пределах Калининграда.</figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="statbar" aria-label="Основные факты о компании">
+      <div class="container">
+        <ul class="statbar__list">
+          <li>
+            <span class="statbar__value">26</span>
+            <span class="statbar__label">услуг в прайс-листе — от генеральной уборки до озонирования</span>
+          </li>
+          <li>
+            <span class="statbar__value">от 100 ₽</span>
+            <span class="statbar__label">минимальная позиция прайса — расчёт за квадратный метр</span>
+          </li>
+          <li>
+            <span class="statbar__value">По городу</span>
+            <span class="statbar__label">выезд в пределах Калининграда, в область не выезжаем</span>
+          </li>
+          <li>
+            <span class="statbar__value">Цена до работ</span>
+            <span class="statbar__label">согласуем стоимость в заявке, до выезда</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="overline">Состав работ</span>
+          <h2>Что входит в уборку в Калининграде</h2>
+          <p class="section__sub">База, из которой собирается любая заявка. Точный список работ по вашей площади и состоянию помещения обсуждаем до выезда, чтобы цена была понятной.</p>
+        </div>
+
+        <div class="included">
+          <div class="included__tabs" role="tablist" aria-label="Помещения">
+            <button class="included__tab is-active" type="button" role="tab" id="incTabRooms" aria-selected="true" aria-controls="incRooms" data-panel="incRooms">Комнаты</button>
+            <button class="included__tab" type="button" role="tab" id="incTabKitchen" aria-selected="false" aria-controls="incKitchen" data-panel="incKitchen">Кухня</button>
+            <button class="included__tab" type="button" role="tab" id="incTabBath" aria-selected="false" aria-controls="incBath" data-panel="incBath">Ванная и санузел</button>
+            <button class="included__tab" type="button" role="tab" id="incTabHall" aria-selected="false" aria-controls="incHall" data-panel="incHall">Прихожая</button>
+          </div>
+
+          <div class="included__panel is-active" id="incRooms" role="tabpanel" aria-labelledby="incTabRooms">
+            <ul class="worklist">
+              <li>
+                <details>
+                  <summary>Пыль на доступных поверхностях</summary>
+                  <div class="worklist__text">Протираем полки, столы, подоконники и другие открытые поверхности. Отдельные позиции — мытьё люстр, техники и окон.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Полы и плинтусы</summary>
+                  <div class="worklist__text">Пропылесосим и вымоем полы, включая плинтусы и углы. Мебель по согласованию можно аккуратно отодвинуть для уборки отдельных зон.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Ковры и мебель снаружи</summary>
+                  <div class="worklist__text">Пропылесосим ковры и мягкую мебель с внешней стороны. Глубокая чистка обивки — отдельная услуга, обсуждается при заявке.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Мусор и мелкий порядок</summary>
+                  <div class="worklist__text">Соберём мусор и вынесем мешки, заправим кровати, сложим по местам вещи, где это возможно.</div>
+                </details>
+              </li>
+            </ul>
+          </div>
+
+          <div class="included__panel" id="incKitchen" role="tabpanel" aria-labelledby="incTabKitchen" hidden>
+            <ul class="worklist">
+              <li>
+                <details>
+                  <summary>Поверхности и фасады</summary>
+                  <div class="worklist__text">Отмоем рабочую зону, фасады гарнитура снаружи, стол и подоконник от пыли и привычных загрязнений.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Плита и раковина</summary>
+                  <div class="worklist__text">Чистим плиту, варочную панель и раковину. Сильные застарелые загрязнения уточняются заранее — от этого зависит время и цена.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Техника внутри и снаружи</summary>
+                  <div class="worklist__text">Снаружи протираем всю технику. Мытьё холодильника, духовки, микроволновой печи и вытяжки внутри — отдельные позиции прайса.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Мусор и пол</summary>
+                  <div class="worklist__text">Меняем мешок в урне, убираем мусор, пылесосим и моем пол, включая зону под кухонным гарнитуром по доступности.</div>
+                </details>
+              </li>
+            </ul>
+          </div>
+
+          <div class="included__panel" id="incBath" role="tabpanel" aria-labelledby="incTabBath" hidden>
+            <ul class="worklist">
+              <li>
+                <details>
+                  <summary>Сантехника</summary>
+                  <div class="worklist__text">Отмываем ванную или душевую, чистим унитаз и смесители до блеска. Глубокая уборка санузла — отдельная позиция прайса.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Плитка и зеркала</summary>
+                  <div class="worklist__text">Протираем кафель от налёта, моем зеркала и стеклянные поверхности без разводов.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Порядок на полках</summary>
+                  <div class="worklist__text">Расставим аккуратно флаконы и полотенца. Каждая вещь остаётся на своём месте или там, где вы укажете.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Мусор и пол</summary>
+                  <div class="worklist__text">Меняем мешок, выносим мусор, моем пол и плинтусы, включая зону под стиральной машиной и раковиной.</div>
+                </details>
+              </li>
+            </ul>
+          </div>
+
+          <div class="included__panel" id="incHall" role="tabpanel" aria-labelledby="incTabHall" hidden>
+            <ul class="worklist">
+              <li>
+                <details>
+                  <summary>Зеркала и двери</summary>
+                  <div class="worklist__text">Моем зеркала, протираем дверные ручки и полотна дверей, выключатели.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Обувь и вещи</summary>
+                  <div class="worklist__text">Аккуратно расставим обувь и разложим верхнюю одежду там, где у вас принято хранить.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Верхние поверхности</summary>
+                  <div class="worklist__text">Убираем пыль с антресолей и верхних полок по доступности, протираем стены от следов пыли.</div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Пол с ковриком</summary>
+                  <div class="worklist__text">Пропылесосим и вымоем пол, вытряхнем или пропылесосим входной коврик.</div>
+                </details>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="included__note">Запахи, следы пожара, уборка после мероприятий и «сложные» помещения оцениваются отдельно — прикладывайте примечания к заявке, обсудим заранее.</p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div>
+            <span class="overline">Дополнительно</span>
+            <h2>Что ещё можно заказать</h2>
+            <p class="section__sub">Отдельные позиции прайса: техника, окна, глажка и уход за запахами. Добавляются к любой уборке или заказываются обособленно.</p>
+          </div>
+          <a class="link-more" href="services.html">Все 26 услуг и цены</a>
+        </div>
+
+        <div class="extras">
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё холодильника</span>
+            <span class="extra-card__price">от 700 ₽</span>
+            <span class="extra-card__meta">1 ч · изнутри</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё духовки</span>
+            <span class="extra-card__price">600 ₽</span>
+            <span class="extra-card__meta">1 ч · внутри</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">СВЧ-печь</span>
+            <span class="extra-card__price">350 ₽</span>
+            <span class="extra-card__meta">45 мин · внутри</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё вытяжки</span>
+            <span class="extra-card__price">от 400 ₽</span>
+            <span class="extra-card__meta">45 мин</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё люстры</span>
+            <span class="extra-card__price">Договорная</span>
+            <span class="extra-card__meta">15 мин · по каскадам</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё окон</span>
+            <span class="extra-card__price">Договорная</span>
+            <span class="extra-card__meta">2 ч · за м²</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Панорамные окна</span>
+            <span class="extra-card__price">от 250 ₽ / м²</span>
+            <span class="extra-card__meta">1 ч базовая</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Глажка одежды</span>
+            <span class="extra-card__price">от 300 ₽</span>
+            <span class="extra-card__meta">30 мин</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Озонирование</span>
+            <span class="extra-card__price">от 1 000 ₽</span>
+            <span class="extra-card__meta">1 ч · запахи</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё балкона</span>
+            <span class="extra-card__price">от 1 000 ₽</span>
+            <span class="extra-card__meta">1 ч 30 мин</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё фасада</span>
+            <span class="extra-card__price">от 1 500 ₽</span>
+            <span class="extra-card__meta">1 ч</span>
+          </a>
+          <a class="extra-card" href="services.html">
+            <span class="extra-card__title">Мытьё оборудования</span>
+            <span class="extra-card__price">от 300 ₽</span>
+            <span class="extra-card__meta">за день · пом. и офисы</span>
+          </a>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
+        <div class="section__head">
+          <span class="overline">Без сюрпризов</span>
+          <h2>Как мы работаем с деньгами и временем</h2>
+          <p class="section__sub">Простые правила, которые мы держим в каждой заявке.</p>
+        </div>
+
+        <div class="principles">
+          <article class="principle">
+            <span class="principle__num">01</span>
+            <div>
+              <h3>Цена — до выезда</h3>
+              <p>Называем стоимость по прайсу до начала работ. Если по ходу выясняется больший объём, сначала обсуждаем сумму — и только потом работаем дальше.</p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">02</span>
+            <div>
+              <h3>Понятная единица расчёта</h3>
+              <p>У части услуг цена за м², этаж или день — единица указана в примечании каждой строки прайса. Никаких «примерно» в счёте.</p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">03</span>
+            <div>
+              <h3>Только Калининград</h3>
+              <p>Выезжаем во все районы города. В область не ездим, поэтому дорога не прибавляется к стоимости уборки.</p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">04</span>
+            <div>
+              <h3>Обычный разговор</h3>
+              <p>Не нужно заполнять анкеты: позвоните или оставьте заявку — уточним услугу, площадь и удобное время, и всё решим в этом же разговоре.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
         <div class="section__head section__head--row">
           <div>
-            <span class="overline">Услуги</span>
-            <h2>Что можно заказать</h2>
-            <p class="section__sub">Шесть позиций из прайса. Остальные услуги, включая мытьё техники, уборку подъездов и коммерческих помещений, — на странице цен.</p>
+            <span class="overline">Основные услуги</span>
+            <h2>Откуда начинается уборка</h2>
+            <p class="section__sub">Часть позиций прайса — те, с которыми к нам обращаются чаще всего. Время — ориентировочное, по прайс-листу.</p>
           </div>
-          <a class="link-more" href="services.html">Все услуги и цены</a>
+          <a class="link-more" href="services.html">Полный прайс-лист</a>
         </div>
 
         <div class="service-list">
@@ -90,42 +370,6 @@
             <div class="service-row__side">
               <span class="service-row__time">3 ч</span>
               <span class="service-row__price">от 1 500 ₽</span>
-            </div>
-            <span class="service-row__arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a class="service-row" href="services.html">
-            <div class="service-row__body">
-              <h3>Уборка кухни</h3>
-              <p>Кухня отдельно от остального помещения: поверхности, техника и рабочая зона.</p>
-            </div>
-            <div class="service-row__side">
-              <span class="service-row__time">3 ч</span>
-              <span class="service-row__price">от 1 500 ₽</span>
-            </div>
-            <span class="service-row__arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a class="service-row" href="services.html">
-            <div class="service-row__body">
-              <h3>Уборка ванной комнаты</h3>
-              <p>Ванная и санузел: сантехника, плитка, зеркала и поверхности.</p>
-            </div>
-            <div class="service-row__side">
-              <span class="service-row__time">2 ч</span>
-              <span class="service-row__price">от 1 000 ₽</span>
-            </div>
-            <span class="service-row__arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a class="service-row" href="services.html">
-            <div class="service-row__body">
-              <h3>Мытьё окон</h3>
-              <p>Стёкла, рамы и подоконники. Стоимость считается за квадратный метр и зависит от доступа.</p>
-            </div>
-            <div class="service-row__side">
-              <span class="service-row__time">2 ч</span>
-              <span class="service-row__price">Цена договорная</span>
             </div>
             <span class="service-row__arrow" aria-hidden="true">→</span>
           </a>
@@ -144,6 +388,42 @@
 
           <a class="service-row" href="services.html">
             <div class="service-row__body">
+              <h3>Уборка коттеджа</h3>
+              <p>Помещения дома целиком, расчёт по площади. Только в пределах Калининграда.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">2 ч базовая</span>
+              <span class="service-row__price">от 130 ₽ / м²</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Уборка после пожара</h3>
+              <p>Помещение после возгорания. Согласуем объём до начала работ — случай нестандартный.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">5 ч базовая</span>
+              <span class="service-row__price">от 500 ₽ / м²</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
+              <h3>Уборка подъезда</h3>
+              <p>Лестничные площадки и подходы. Цена считается за этаж.</p>
+            </div>
+            <div class="service-row__side">
+              <span class="service-row__time">1 ч базовая</span>
+              <span class="service-row__price">от 1 500 ₽ / этаж</span>
+            </div>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="service-row" href="services.html">
+            <div class="service-row__body">
               <h3>Уборка после выезда квартирантов</h3>
               <p>Помещение после жильцов: поверхности, полы, санузел и кухня. Цена за квадратный метр.</p>
             </div>
@@ -152,6 +432,83 @@
               <span class="service-row__price">от 150 ₽ / м²</span>
             </div>
             <span class="service-row__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="service-list__foot">
+          <a class="btn btn--primary" href="services.html">Ещё 20 услуг — в прайс-листе</a>
+          <span class="service-list__hint">Кухни, ванные, окна, техника, глажка и коммерческие помещения — на странице цен.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="overline">По помещениям</span>
+          <h2>Закажите уборку отдельной комнаты</h2>
+          <p class="section__sub">Можно привести порядок только там, где нужно. Для комнат цена учитывается в генеральной уборке — назовите состав работ при заявке.</p>
+        </div>
+
+        <div class="rooms">
+          <a class="room-card" href="services.html">
+            <span class="room-card__badge">от 1 500 ₽</span>
+            <h3>Уборка кухни</h3>
+            <span class="room-card__meta">3 ч · по прайсу</span>
+            <ul>
+              <li>Поверхности и фасады</li>
+              <li>Плита и раковина</li>
+              <li>Полы и мусор</li>
+            </ul>
+            <span class="room-card__more" aria-hidden="true">Подробнее →</span>
+          </a>
+
+          <a class="room-card" href="services.html">
+            <span class="room-card__badge">от 1 000 ₽</span>
+            <h3>Уборка ванной комнаты</h3>
+            <span class="room-card__meta">2 ч · по прайсу</span>
+            <ul>
+              <li>Сантехника и плитка</li>
+              <li>Зеркала и поверхности</li>
+              <li>Полы и мусор</li>
+            </ul>
+            <span class="room-card__more" aria-hidden="true">Подробнее →</span>
+          </a>
+
+          <a class="room-card" href="services.html">
+            <span class="room-card__badge">от 700 ₽</span>
+            <h3>Мытьё санузла</h3>
+            <span class="room-card__meta">1 ч · по прайсу</span>
+            <ul>
+              <li>Унитаз и смесители</li>
+              <li>Поверхности и зеркала</li>
+              <li>Пол и плинтусы</li>
+            </ul>
+            <span class="room-card__more" aria-hidden="true">Подробнее →</span>
+          </a>
+
+          <a class="room-card" href="services.html">
+            <span class="room-card__badge">от 1 000 ₽</span>
+            <h3>Мытьё балкона</h3>
+            <span class="room-card__meta">1 ч 30 мин · по прайсу</span>
+            <ul>
+              <li>Поверхности и остекление</li>
+              <li>Мелкий порядок</li>
+              <li>Полы</li>
+            </ul>
+            <span class="room-card__more" aria-hidden="true">Подробнее →</span>
+          </a>
+
+          <a class="room-card" href="services.html">
+            <span class="room-card__badge">Договорная</span>
+            <h3>Мытьё окон</h3>
+            <span class="room-card__meta">2 ч базовая · за м²</span>
+            <ul>
+              <li>Стёкла и рамы</li>
+              <li>Подоконники</li>
+              <li>Цена — от доступа и площади</li>
+            </ul>
+            <span class="room-card__more" aria-hidden="true">Подробнее →</span>
           </a>
         </div>
       </div>
@@ -196,49 +553,6 @@
     <section class="section">
       <div class="container">
         <div class="section__head">
-          <span class="overline">О ценах</span>
-          <h2>Что важно знать</h2>
-        </div>
-
-        <div class="principles">
-          <article class="principle">
-            <span class="principle__num">01</span>
-            <div>
-              <h3>Цены «от»</h3>
-              <p>Это минимальная стоимость услуги. Итоговая зависит от площади, состояния помещения и объёма работы.</p>
-            </div>
-          </article>
-
-          <article class="principle">
-            <span class="principle__num">02</span>
-            <div>
-              <h3>Расчёт за м², этаж или день</h3>
-              <p>У части услуг цена считается не за помещение целиком, а по единице. Она указана в примечании к строке прайса.</p>
-            </div>
-          </article>
-
-          <article class="principle">
-            <span class="principle__num">03</span>
-            <div>
-              <h3>Договорная стоимость</h3>
-              <p>Мытьё окон и люстр оцениваем после уточнения размера, количества и доступа к конструкции.</p>
-            </div>
-          </article>
-
-          <article class="principle">
-            <span class="principle__num">04</span>
-            <div>
-              <h3>Только Калининград</h3>
-              <p>Выезжаем в пределах города. В другие города и посёлки области не ездим — дорога не входит в цену.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section__head">
           <span class="overline">Вопросы</span>
           <h2>Коротко о важном</h2>
         </div>
@@ -260,6 +574,36 @@
           </details>
 
           <details>
+            <summary>Как считается цена за квадратный метр?</summary>
+            <div class="faq__answer">Умножаем ставку из прайса на площадь, учитывая состояние помещения. Например, у офиса — 130 ₽ за м², у коттеджа — от 130 ₽ за м². Единица расчёта всегда указана в примечании к услуге.</div>
+          </details>
+
+          <details>
+            <summary>Сколько длится уборка?</summary>
+            <div class="faq__answer">В прайсе у каждой услуги указано ориентировочное время — от 15 минут на люстру до 5 часов базовой уборки после пожара. Реальное время зависит от площади и состояния, назовём его при согласовании заявки.</div>
+          </details>
+
+          <details>
+            <summary>Можно заказать только кухню или ванную, без всей квартиры?</summary>
+            <div class="faq__answer">Да. Уборка кухни, ванной комнаты, мойка санузла и балкона — отдельные позиции прайса, их можно заказать отдельно от генеральной уборки.</div>
+          </details>
+
+          <details>
+            <summary>Технику чистите отдельно?</summary>
+            <div class="faq__answer">Да. В прайсе есть мытьё холодильника, духовки, микроволновой печи, вытяжки, плиты и люстры. Часть услуг — по цене за м² или за день работы оборудования.</div>
+          </details>
+
+          <details>
+            <summary>Берёте коммерческие помещения?</summary>
+            <div class="faq__answer">Да: уборка офисов и ресторанов по ставке за м², мытьё оборудования — за день работы, уборка подъездов — за этаж. Детали уточним в заявке — так проще назвать точную цену.</div>
+          </details>
+
+          <details>
+            <summary>Что с запахами в помещении?</summary>
+            <div class="faq__answer">Для этого есть услуга озонирования — обработка помещения озоном. Стоимость — от 1 000 ₽, обычно занимает около часа.</div>
+          </details>
+
+          <details>
             <summary>Как записаться на уборку?</summary>
             <div class="faq__answer">Позвоните по телефону или оставьте заявку на странице контактов. Уточним услугу, площадь и удобное время, после чего согласуем стоимость.</div>
           </details>
@@ -272,12 +616,12 @@
         <div class="cta">
           <div class="cta__grid">
             <div>
-              <h2>Посмотрите полный прайс</h2>
-              <p>Там все услуги и цены: от генеральной уборки и мытья техники до уборки офисов, подъездов и помещений после пожара.</p>
+              <h2>Назовём цену заранее</h2>
+              <p>Позвоните или оставьте заявку: уточним услугу, площадь и состояние помещения — и согласуем стоимость до выезда.</p>
             </div>
             <div class="cta__actions">
               <a class="cta__phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
-              <a class="btn btn--light" href="services.html">Услуги и цены</a>
+              <a class="btn btn--light" href="contacts.html#form">Оставить заявку</a>
               <span class="cta__small">Калининград · выезд по городу</span>
             </div>
           </div>

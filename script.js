@@ -49,6 +49,30 @@
     });
   }
 
+  /* ---------- Вкладки «Что входит в уборку» ---------- */
+  $$(".included__tab").forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      var root = tab.closest(".included");
+      if (!root) return;
+
+      $$(".included__tab", root).forEach(function (t) {
+        var isActive = t === tab;
+        t.classList.toggle("is-active", isActive);
+        t.setAttribute("aria-selected", String(isActive));
+      });
+
+      $$(".included__panel", root).forEach(function (panel) {
+        var show = panel.id === tab.getAttribute("data-panel");
+        panel.classList.toggle("is-active", show);
+        if (show) {
+          panel.removeAttribute("hidden");
+        } else {
+          panel.setAttribute("hidden", "");
+        }
+      });
+    });
+  });
+
   /* ---------- Маска телефона ---------- */
   var phone = $("#leadPhone");
 

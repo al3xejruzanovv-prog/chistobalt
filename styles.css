@@ -2225,3 +2225,380 @@ input[type="range"]::-moz-range-thumb {
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* =========================================================
+   Блоки главной по структуре референса:
+   полоса фактов, «Что входит», доп-услуги, помещения
+   ========================================================= */
+
+/* ---------- Полоса фактов после hero ---------- */
+
+.statbar {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.statbar__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.statbar__list li {
+  padding: 22px 26px;
+  border-right: 1px solid var(--line);
+}
+
+.statbar__list li:last-child {
+  border-right: 0;
+}
+
+.statbar__value {
+  display: block;
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--green);
+}
+
+.statbar__label {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .statbar__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .statbar__list li:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .statbar__list li:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 520px) {
+  .statbar__list {
+    grid-template-columns: 1fr;
+  }
+
+  .statbar__list li {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .statbar__list li:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ---------- «Что входит»: вкладки + раскрывающийся список ---------- */
+
+.included {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.included__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 10px 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.included__tab {
+  padding: 10px 18px 12px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.included__tab:hover {
+  color: var(--ink);
+}
+
+.included__tab.is-active {
+  color: var(--green);
+  border-bottom-color: var(--terra);
+}
+
+.included__panel {
+  display: none;
+}
+
+.included__panel.is-active {
+  display: block;
+  animation: panel-in 0.18s ease;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.included__note {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.worklist {
+  margin: 0;
+  padding: 6px 20px;
+  list-style: none;
+}
+
+.worklist details {
+  border-bottom: 1px solid var(--line);
+}
+
+.worklist details:last-child {
+  border-bottom: 0;
+}
+
+.worklist summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.15s ease;
+}
+
+.worklist summary::-webkit-details-marker {
+  display: none;
+}
+
+.worklist summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 18px;
+  color: var(--terra);
+  transition: transform 0.15s ease;
+}
+
+.worklist details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.worklist summary:hover {
+  color: var(--green);
+}
+
+.worklist__text {
+  padding: 0 2px 15px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+@media (max-width: 640px) {
+  .included {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  .included__tab {
+    padding: 9px 12px 10px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- Доп-услуги: сетка карточек ---------- */
+
+.extras {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.extra-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 18px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.extra-card:hover {
+  border-color: var(--terra);
+  color: var(--ink);
+}
+
+.extra-card__title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.extra-card__price {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.extra-card__meta {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .extras {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .extras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* ---------- Уборка по помещениям ---------- */
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.room-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 18px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+
+.room-card:hover {
+  border-color: var(--green);
+}
+
+.room-card__badge {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--green-soft);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.room-card h3 {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.room-card__meta {
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.room-card ul {
+  margin: 12px 0 14px;
+  padding: 0;
+  list-style: none;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.room-card ul li::before {
+  content: "—";
+  margin-right: 7px;
+  color: var(--terra);
+}
+
+.room-card__more {
+  margin-top: auto;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--green);
+  border-bottom: 1px solid rgba(37, 80, 60, 0.35);
+  align-self: flex-start;
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.room-card:hover .room-card__more {
+  color: var(--terra);
+  border-color: var(--terra);
+}
+
+@media (max-width: 1000px) {
+  .rooms {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .rooms {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 440px) {
+  .rooms {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Итоговая строка основного списка услуг ---------- */
+
+.service-list__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 26px;
+  margin-top: 28px;
+}
+
+.service-list__hint {
+  font-size: 14px;
+  color: var(--muted);
+}
