@@ -2602,3 +2602,263 @@ html {
   font-size: 14px;
   color: var(--muted);
 }
+
+/* =========================================================
+   Калькулятор, «цена по фото», карта, слоты для данных
+   ========================================================= */
+
+/* ---------- Калькулятор в hero ---------- */
+
+.calc {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 22px 22px 20px;
+  box-shadow: 0 18px 44px -30px rgba(24, 56, 42, 0.45);
+}
+
+.calc__title {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.calc__field {
+  margin-bottom: 12px;
+}
+
+.calc__field label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.calc select,
+.calc input[type="number"],
+.calc input[type="text"],
+.calc input[type="tel"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+
+.calc select:focus,
+.calc input:focus {
+  outline: 2px solid var(--terra);
+  outline-offset: 1px;
+}
+
+.calc__extras {
+  margin: 14px 0 12px;
+  padding: 10px 14px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.calc__extras legend {
+  padding: 0 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.calc__extras label {
+  display: block;
+  padding: 4px 0;
+  font-size: 13.5px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.calc__extras input {
+  margin-right: 8px;
+  accent-color: var(--green);
+}
+
+.calc__total {
+  margin: 8px 0 2px;
+  font-size: 15px;
+}
+
+.calc__total strong {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--green);
+}
+
+.calc__negotiable {
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--terra);
+}
+
+.calc__hint {
+  margin: 2px 0 16px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.calc__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 2px 0 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.calc__consent input {
+  margin-top: 2px;
+  accent-color: var(--green);
+}
+
+.calc__consent a {
+  color: inherit;
+}
+
+.calc__error {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.calc__success {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--green-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.calc__success p {
+  margin: 0 0 8px;
+}
+
+.calc__success p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 960px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 520px) {
+  .calc {
+    padding: 18px 16px 16px;
+  }
+}
+
+/* ---------- Слот под реальные данные владельца ---------- */
+
+.slot {
+  border: 2px dashed var(--line-strong);
+  border-radius: 6px;
+  padding: 22px 24px;
+  background: var(--surface);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.slot strong {
+  color: var(--ink);
+}
+
+.slot-tag {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border: 1px dashed var(--terra);
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--terra);
+  white-space: nowrap;
+}
+
+/* ---------- «Назовём цену по фото» ---------- */
+
+.price-photo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 36px;
+}
+
+.price-photo h3 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.4vw, 36px);
+}
+
+.price-photo p {
+  max-width: 540px;
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.price-photo__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.price-photo__figure {
+  margin: 0;
+  text-align: right;
+}
+
+.price-photo__figure img {
+  width: 280px;
+  height: auto;
+}
+
+.price-photo__figure figcaption {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .price-photo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .price-photo__figure {
+    text-align: left;
+  }
+}
+
+/* ---------- Карта города ---------- */
+
+.map-embed {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.map-embed iframe {
+  display: block;
+  border: 0;
+}

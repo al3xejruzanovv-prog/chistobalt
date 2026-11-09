@@ -73,15 +73,14 @@
     });
   });
 
-  /* ---------- Маска телефона ---------- */
-  var phone = $("#leadPhone");
-
-  if (phone) {
-    phone.addEventListener("input", function () {
-      var digits = phone.value.replace(/\D/g, "");
+  /* ---------- Маска телефона (форма на контактах + калькулятор) ---------- */
+  function bindPhoneMask(input) {
+    if (!input) return;
+    input.addEventListener("input", function () {
+      var digits = input.value.replace(/\D/g, "");
 
       if (!digits) {
-        phone.value = "";
+        input.value = "";
         return;
       }
 
@@ -95,7 +94,149 @@
       if (digits.length >= 8) out += "-" + digits.slice(7, 9);
       if (digits.length >= 10) out += "-" + digits.slice(9, 11);
 
-      phone.value = out;
+      input.value = out;
+    });
+  }
+
+  bindPhoneMask($("#leadPhone"));
+  bindPhoneMask($("#calcPhone"));
+
+  /* ---------- Калькулятор на главной ---------- */
+  var calcForm = $("#calcForm");
+  var calcService = $("#calcService");
+  var calcArea = $("#calcArea");
+  var calcAreaWrap = $("#calcAreaWrap");
+  var calcFloors = $("#calcFloors");
+  var calcFloorsWrap = $("#calcFloorsWrap");
+  var calcTotalEl = $("#calcTotal");
+  var calcNegotiable = $("#calcNegotiable");
+  var calcError = $("#calcError");
+  var calcSuccess = $("#calcSuccess");
+  var calcName = $("#calcName");
+  var calcPhoneEl = $("#calcPhone");
+  var calcConsent = $("#calcConsent");
+  var calcSummaryText = "";
+
+  function ruFmt(number) {
+    return number.toLocaleString("ru-RU");
+  }
+
+  function calcUpdate() {
+    if (!calcForm || !calcService || !calcService.options.length) return;
+
+    var opt = calcService.options[calcService.selectedIndex];
+    var rate = parseInt(opt.getAttribute("data-price"), 10) || 0;
+    var unit = opt.getAttribute("data-base");
+    var baseName = opt.getAttribute("data-name");
+    var total = rate;
+
+    if (calcAreaWrap) calcAreaWrap.hidden = unit !== "m2";
+    if (calcFloorsWrap) calcFloorsWrap.hidden = unit !== "floor";
+
+    var summaryName = baseName;
+
+    if (unit === "m2") {
+      var area = Math.max(parseInt(calcArea && calcArea.value, 10) || 0, 0);
+      total = rate * area;
+      summaryName = baseName + ", " + area + " м²";
+    } else if (unit === "floor") {
+      var floors = Math.max(parseInt(calcFloors && calcFloors.value, 10) || 1, 1);
+      total = rate * floors;
+      summaryName = baseName + ", " + floors + " эт.";
+    }
+
+    var extrasSum = 0;
+    var hasNegotiable = false;
+    var extrasNames = [];
+
+    $$('input[type="checkbox"]', calcForm).forEach(function (box) {
+      if (!box.checked) return;
+      if (box.hasAttribute("data-negotiable")) {
+        hasNegotiable = true;
+        extrasNames.push(box.getAttribute("data-name"));
+      } else if (box.getAttribute("data-price")) {
+        extrasSum += parseInt(box.getAttribute("data-price"), 10) || 0;
+        extrasNames.push(box.getAttribute("data-name"));
+      }
+    });
+
+    total = total + extrasSum;
+    calcSummaryText = summaryName + (extrasNames.length ? "; дополнительно: " + extrasNames.join(", ") : "") + " — ориентировочно от " + ruFmt(total) + " ₽";
+
+    if (calcTotalEl) calcTotalEl.textContent = "от " + ruFmt(total) + " ₽";
+    if (calcNegotiable) calcNegotiable.hidden = !hasNegotiable;
+  }
+
+  if (calcForm && calcService) {
+    calcService.addEventListener("change", calcUpdate);
+    calcService.addEventListener("input", calcUpdate);
+
+    if (calcArea) {
+      calcArea.addEventListener("input", calcUpdate);
+      calcArea.addEventListener("change", calcUpdate);
+    }
+    if (calcFloors) {
+      calcFloors.addEventListener("input", calcUpdate);
+      calcFloors.addEventListener("change", calcUpdate);
+    }
+
+    $$('input[type="checkbox"]', calcForm).forEach(function (box) {
+      box.addEventListener("change", calcUpdate);
+    });
+
+    calcUpdate();
+
+    $$("input, select", calcForm).forEach(function (control) {
+      control.addEventListener("input", function () {
+        if (calcError) calcError.textContent = "";
+      });
+    });
+
+    calcForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (calcError) calcError.textContent = "";
+
+      var nameVal = calcName ? calcName.value.trim() : "";
+      var digits = calcPhoneEl ? calcPhoneEl.value.replace(/\D/g, "") : "";
+
+      if (nameVal.length < 2) {
+        if (calcError) calcError.textContent = "Укажите имя — так удобнее общаться.";
+        if (calcName) calcName.focus();
+        return;
+      }
+
+      if (digits.length !== 11) {
+        if (calcError) calcError.textContent = "Введите телефон в формате +7 (___) ___-__-__.";
+        if (calcPhoneEl) calcPhoneEl.focus();
+        return;
+      }
+
+      if (calcConsent && !calcConsent.checked) {
+        if (calcError) calcError.textContent = "Отметьте согласие на обработку персональных данных.";
+        calcConsent.focus();
+        return;
+      }
+
+      var submitBtn = $('button[type="submit"]', calcForm);
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Отправляем…";
+      }
+
+      /* Здесь подключается ваш обработчик: CRM, почта или Telegram-бот. */
+      window.setTimeout(function () {
+        var summary = $("#calcSuccessSummary");
+        if (summary) summary.textContent = calcSummaryText;
+        if (calcSuccess) {
+          calcSuccess.hidden = false;
+          calcSuccess.focus();
+        }
+        calcForm.hidden = true;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Заказать";
+        }
+      }, 500);
     });
   }
 

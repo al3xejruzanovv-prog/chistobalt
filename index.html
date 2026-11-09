@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ЧистоБалт — клининговые услуги в Калининграде: уборка квартир, домов и офисов</title>
-  <meta name="description" content="Клининговые услуги в Калининграде. Что входит в уборку, отдельные помещения, окна, техника, офисы и коммерческие помещения. Прайс-лист из 26 услуг, цены согласовываем до начала работ. Только Калининград, без выездов по области.">
+  <meta name="description" content="Клининговые услуги в Калининграде. Онлайн-расчёт уборки, что входит в уборку, доп-работы, офисы и коммерческие помещения. Прайс-лист из 26 услуг, цены согласовываем до начала работ. Только Калининград.">
   <meta name="theme-color" content="#25503c">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -47,29 +47,103 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero__grid">
+    <!-- ============ HERO + КАЛЬКУЛЯТОР (как у референса: форма поверх обложки) ============ -->
+    <section class="hero hero--calc">
+      <div class="container hero__grid hero__grid--calc">
         <div>
           <span class="overline">Клининговые услуги в Калининграде</span>
           <h1>Уборка квартир, домов и офисов <em>в Калининграде</em></h1>
-          <p class="hero__lead">«ЧистоБалт» — уборка помещений по прайс-листу из 26 позиций: генеральная уборка, кухня и ванная, окна и балконы, бытовая техника, офисы и коммерческие помещения. Полный список работ и цены — на странице прайса.</p>
+          <p class="hero__lead">«ЧистоБалт» — сервис профессиональной уборки по прайс-листу из 26 позиций: от генеральной уборки и мытья техники до офисов, подъездов и помещений после пожара.</p>
 
           <div class="hero__actions">
             <a class="btn btn--primary" href="services.html">Смотреть услуги и цены</a>
-            <a class="btn btn--secondary" href="tel:+70000000000">Позвонить: +7 (000) 000-00-00</a>
+            <a class="btn btn--secondary" href="#calcForm">Рассчитать онлайн</a>
           </div>
           <p class="hero__note">Стоимость согласуем до начала работ. Работаем только в Калининграде — за город и в область не выезжаем.</p>
         </div>
 
         <div class="hero__media">
-          <figure class="hero__figure">
-            <img src="assets/hero-line.svg" alt="Комната после уборки: окно, кот на подоконнике, растение и ведро со шваброй" width="560" height="660">
-            <figcaption>Генеральная уборка, кухни, ванные, окна, техника, офисы и подъезды. Выезд — в пределах Калининграда.</figcaption>
-          </figure>
+          <div class="calc" id="calc">
+            <p class="calc__title">Рассчитать уборку</p>
+
+            <form id="calcForm" novalidate>
+              <div class="calc__field">
+                <label for="calcService">Основная услуга</label>
+                <select id="calcService">
+                  <option value="general" data-name="Генеральная уборка" data-price="1500" data-base="min">Генеральная уборка · от 1 500 ₽</option>
+                  <option value="kitchen" data-name="Уборка кухни" data-price="1500" data-base="min">Уборка кухни · от 1 500 ₽</option>
+                  <option value="bath" data-name="Уборка ванной комнаты" data-price="1000" data-base="min">Уборка ванной · от 1 000 ₽</option>
+                  <option value="wc" data-name="Мытьё санузла" data-price="700" data-base="min">Мытьё санузла · от 700 ₽</option>
+                  <option value="balcony" data-name="Мытьё балкона" data-price="1000" data-base="min">Мытьё балкона · от 1 000 ₽</option>
+                  <option value="office" data-name="Уборка офиса" data-price="130" data-base="m2">Уборка офиса · 130 ₽/м²</option>
+                  <option value="cottage" data-name="Уборка коттеджа" data-price="130" data-base="m2">Уборка коттеджа · от 130 ₽/м²</option>
+                  <option value="tenants" data-name="Уборка после выезда квартирантов" data-price="150" data-base="m2">После квартирантов · от 150 ₽/м²</option>
+                  <option value="party" data-name="Уборка после вечеринки" data-price="150" data-base="m2">После вечеринки · от 150 ₽/м²</option>
+                  <option value="fire" data-name="Уборка после пожара" data-price="500" data-base="m2">После пожара · от 500 ₽/м²</option>
+                  <option value="entrance" data-name="Уборка подъезда" data-price="1500" data-base="floor">Подъезд · от 1 500 ₽/этаж</option>
+                </select>
+              </div>
+
+              <div class="calc__field" id="calcAreaWrap" hidden>
+                <label for="calcArea">Площадь, м²</label>
+                <input type="number" id="calcArea" min="1" step="1" value="50" inputmode="numeric">
+              </div>
+
+              <div class="calc__field" id="calcFloorsWrap" hidden>
+                <label for="calcFloors">Этажей</label>
+                <input type="number" id="calcFloors" min="1" step="1" value="1" inputmode="numeric">
+              </div>
+
+              <fieldset class="calc__extras">
+                <legend>Добавить работы</legend>
+                <label><input type="checkbox" data-price="700" data-name="мытьё холодильника"> Холодильник · 700 ₽</label>
+                <label><input type="checkbox" data-price="600" data-name="мытьё духовки"> Духовка · 600 ₽</label>
+                <label><input type="checkbox" data-price="350" data-name="мытьё СВЧ-печи"> СВЧ-печь · 350 ₽</label>
+                <label><input type="checkbox" data-price="400" data-name="мытьё вытяжки"> Вытяжка · от 400 ₽</label>
+                <label><input type="checkbox" data-price="300" data-name="мытьё плиты"> Плита · от 300 ₽</label>
+                <label><input type="checkbox" data-price="300" data-name="глажка одежды"> Глажка · от 300 ₽</label>
+                <label><input type="checkbox" data-price="1000" data-name="озонирование"> Озонирование · от 1 000 ₽</label>
+                <label><input type="checkbox" data-negotiable data-name="мытьё окон"> Окна · договорная</label>
+                <label><input type="checkbox" data-negotiable data-name="мытьё люстры"> Люстра · договорная</label>
+              </fieldset>
+
+              <p class="calc__total">
+                Ориентировочно: <strong id="calcTotal">от 1 500 ₽</strong>
+                <span id="calcNegotiable" class="calc__negotiable" hidden>+ позиции по согласованию</span>
+              </p>
+              <p class="calc__hint">Минимум по прайсу. Итоговую цену согласуем до начала работ.</p>
+
+              <div class="calc__field">
+                <label for="calcName">Имя</label>
+                <input type="text" id="calcName" name="name" autocomplete="name">
+              </div>
+
+              <div class="calc__field">
+                <label for="calcPhone">Телефон</label>
+                <input type="tel" id="calcPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+              </div>
+
+              <label class="calc__consent">
+                <input type="checkbox" id="calcConsent">
+                <span>Согласен(на) с <a href="privacy.html#consent">обработкой персональных данных</a></span>
+              </label>
+
+              <p class="calc__error" id="calcError" aria-live="polite"></p>
+
+              <button class="btn btn--primary btn--block" type="submit">Заказать</button>
+            </form>
+
+            <div class="calc__success" id="calcSuccess" hidden tabindex="-1">
+              <p><strong>Расчёт принят!</strong></p>
+              <p>Итог: <span id="calcSuccessSummary"></span></p>
+              <p>Мы свяжемся с вами для уточнения деталей. Если вопрос срочный — <a href="tel:+70000000000">позвоните нам</a>.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ ПОЛОСА ФАКТОВ (вместо счётчика м² — только реальные данные) ============ -->
     <section class="statbar" aria-label="Основные факты о компании">
       <div class="container">
         <ul class="statbar__list">
@@ -93,6 +167,7 @@
       </div>
     </section>
 
+    <!-- ============ ЧТО ВХОДИТ В УБОРКУ: ВКЛАДКИ ПО ПОМЕЩЕНИЯМ ============ -->
     <section class="section">
       <div class="container">
         <div class="section__head">
@@ -230,6 +305,7 @@
       </div>
     </section>
 
+    <!-- ============ ДОПОЛНИТЕЛЬНО: СЕТКА КАРТОЧЕК ============ -->
     <section class="section section--alt">
       <div class="container">
         <div class="section__head section__head--row">
@@ -306,7 +382,68 @@
       </div>
     </section>
 
+    <!-- ============ КЛИНЕРЫ: СЛОТ ПОД РЕАЛЬНЫЕ ДАННЫЕ ============ -->
     <section class="section">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div>
+            <span class="overline">Наши клинеры</span>
+            <h2>Те, кто делает уборку</h2>
+            <p class="section__sub">Секция готова к заполнению: карточки клинеров с фото, специализацией и описанием — точно в том же формате, что на сайтах крупных сервисов.</p>
+          </div>
+          <a class="link-more" href="contacts.html#form">Оставить заявку</a>
+        </div>
+
+        <div class="slot">
+          <strong>Что нужно для запуска блока:</strong> имена, фото и пару строк о каждом клинере (кто чем силён — печи, окна, техника). Пришлите список — и мы выведем карточки в две линии, как в референсе.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ОТЗЫВЫ: СЛОТ ПОД РЕАЛЬНЫЕ ДАННЫЕ ============ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div>
+            <span class="overline">Отзывы</span>
+            <h2>Что говорят клиенты</h2>
+            <p class="section__sub">Секция подготовлена под отзывы: заголовок, рейтинг-агрегатор, прокрутка крупных карточек с оценкой и именем автора.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <strong>Что нужно для запуска блока:</strong> реальные отзывы с имени, оценкой и текстом (подойдут те, что с Avito или из сообщений клиентов). Пока выводим только отзывы, присланные вами, — ничего не выдумываем.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ЦЕНА ПО ФОТО ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="price-photo">
+          <div class="price-photo__content">
+            <h3>Назовём цену по фото</h3>
+            <p>Пришлите фото помещения и пару слов о задаче — назовём точную стоимость до выезда. Или сразу оставьте заявку, калькулятором сверху мы уже собирали расчёт.</p>
+            <div class="price-photo__actions">
+              <a class="btn btn--primary price-photo__btn" href="tel:+70000000000">Позвонить</a>
+              <a class="btn btn--secondary price-photo__btn" href="#" data-slot-link="Замените на ссылку Telegram (например, t.me/вашкана)">
+                Telegram <span class="slot-tag">ссылку замените</span>
+              </a>
+              <a class="btn btn--secondary price-photo__btn" href="#" data-slot-link="Замените на ссылку WhatsApp (wa.me/7XXXXXXXXXX)">
+                WhatsApp <span class="slot-tag">ссылку замените</span>
+              </a>
+            </div>
+          </div>
+          <figure class="price-photo__figure">
+            <img src="assets/hero-line.svg" alt="Иллюстрация: уборка комнаты" width="360" height="360">
+            <figcaption>Работаем без ботов — вас слушает человек.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ БЕЗ СЮРПРИЗОВ: ПРЕИМУЩЕСТВА ============ -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section__head">
           <span class="overline">Без сюрпризов</span>
@@ -350,7 +487,8 @@
       </div>
     </section>
 
-    <section class="section section--alt">
+    <!-- ============ ОСНОВНЫЕ УСЛУГИ: СТРОКИ С ЦЕНАМИ ============ -->
+    <section class="section">
       <div class="container">
         <div class="section__head section__head--row">
           <div>
@@ -442,7 +580,8 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- ============ УБОРКА ОТДЕЛЬНЫХ ПОМЕЩЕНИЙ ============ -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section__head">
           <span class="overline">По помещениям</span>
@@ -514,7 +653,8 @@
       </div>
     </section>
 
-    <section class="section section--alt">
+    <!-- ============ КАК ЗАКАЗАТЬ: 4 ШАГА ============ -->
+    <section class="section">
       <div class="container">
         <div class="section__head">
           <span class="overline">Как заказать</span>
@@ -526,7 +666,7 @@
           <article class="step">
             <div class="step__num">01</div>
             <h3>Заявка</h3>
-            <p>Позвоните или оставьте заявку на сайте. Напишите, какая услуга нужна, площадь и удобное время.</p>
+            <p>Позвоните или оставьте заявку на сайте/в калькуляторе. Напишите, какая услуга нужна, площадь и удобное время.</p>
           </article>
 
           <article class="step">
@@ -550,7 +690,8 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- ============ FAQ ============ -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section__head">
           <span class="overline">Вопросы</span>
@@ -611,6 +752,28 @@
       </div>
     </section>
 
+    <!-- ============ КАРТА ГОРОДА ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="overline">География</span>
+          <h2>Работаем по всему Калининграду</h2>
+          <p class="section__sub">Выезд в пределах города — в любой район. За город и в другие населённые пункты области не выезжаем.</p>
+        </div>
+
+        <div class="map-embed">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=20.510146%2C54.710435&z=11&l=map"
+            width="100%" height="380"
+            title="Карта Калининграда: работаем во всех районах города"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
     <section class="section section--tight">
       <div class="container">
         <div class="cta">
