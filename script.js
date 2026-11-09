@@ -375,13 +375,11 @@
       htmlEl.setAttribute("data-theme", "dark");
       if (themeToggle) {
         themeToggle.setAttribute("aria-pressed", "true");
-        themeToggle.textContent = "☀️";
       }
     } else {
       htmlEl.removeAttribute("data-theme");
       if (themeToggle) {
         themeToggle.setAttribute("aria-pressed", "false");
-        themeToggle.textContent = "🌙";
       }
     }
   }

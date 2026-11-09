@@ -262,23 +262,56 @@ h3 {
 
 /* Кнопка переключения темы */
 .theme-toggle {
-  min-height: 40px;
-  padding: 0 14px;
-  font-size: 16px;
+  min-height: 36px;
+  min-width: 44px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: 1px solid var(--line-strong);
-  color: var(--ink-soft);
-  border-radius: 4px;
+  color: var(--green);
+  border-radius: 999px;
 }
 
 .theme-toggle:hover {
-  border-color: var(--ink-soft);
-  color: var(--ink);
+  border-color: var(--green);
+  background: var(--green-soft);
+  color: var(--green-dark);
 }
 
 [data-theme="dark"] .theme-toggle {
   border-color: var(--line-strong);
-  color: var(--ink-soft);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.theme-toggle__icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-toggle__icon--sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle__icon--sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle__icon--moon {
+  display: none;
 }
 
 /* ---------- Top bar ---------- */
@@ -2960,10 +2993,6 @@ body {
   background: var(--surface);
 }
 
-.theme-toggle {
-  border-radius: 999px;
-}
-
 /* ---------- Hero ---------- */
 
 .hero {
@@ -3449,7 +3478,7 @@ body {
   border: 0;
   display: block;
   border-radius: 28px;
-  background: var(--card);
+  background: var(--green-soft);
   padding: clamp(28px, 4.5vw, 48px);
   box-shadow: 0 2px 4px rgba(15, 28, 36, 0.05), 0 24px 64px -32px rgba(15, 28, 36, 0.35);
 }
@@ -3485,11 +3514,24 @@ body {
 .calc__col--side {
   padding: clamp(18px, 2.4vw, 28px);
   border-radius: 18px;
-  background: var(--surface);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .calc--big {
+  background: var(--green-soft);
+  box-shadow: 0 24px 64px -32px rgba(0, 0, 0, 0.55);
 }
 
 .calc__success {
   grid-column: 1 / -1;
+  background: var(--card);
+  border-color: transparent;
+  box-shadow: var(--shadow);
+}
+
+.calc--big .calc__extras {
+  background: var(--card);
 }
 
 @media (max-width: 900px) {
