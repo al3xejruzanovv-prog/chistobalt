@@ -408,4 +408,41 @@
     });
   }
 
-})();
+
+  /* ---------- Р‘С‹СЃС‚СЂС‹Р№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РЅР° РіР»Р°РІРЅРѕР№ ---------- */
+  var quickForm = $("#calcQuickForm");
+  var quickMsg = $("#calcQuickMsg");
+  if (quickForm) {
+    quickForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (quickMsg) quickMsg.textContent = "";
+      var typeSel = $("#quickType");
+      var roomsSel = $("#quickRooms");
+      var phoneEl = $("#quickPhone");
+      var digits = phoneEl ? phoneEl.value.replace(/\D/g, "") : "";
+      if (!typeSel || !roomsSel || !phoneEl) return;
+      if (digits.length !== 11) {
+        if (quickMsg) quickMsg.textContent = "РЈРєР°Р¶РёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РІ С„РѕСЂРјР°С‚Рµ +7 (___) ___-__-__.";
+        phoneEl.focus();
+        return;
+      }
+      var btn = $("button[type='submit']", quickForm);
+      if (btn) { btn.disabled = true; btn.textContent = "РћС‚РїСЂР°РІР»СЏРµРјвЂ¦"; }
+      window.setTimeout(function () {
+        if (quickMsg) {
+          quickMsg.style.color = "var(--green-dark)";
+          quickMsg.textContent = "Р—Р°СЏРІРєР° РїСЂРёРЅСЏС‚Р°: " + typeSel.options[typeSel.selectedIndex].text + ", " + roomsSel.options[roomsSel.selectedIndex].text + ". РњС‹ РїРµСЂРµР·РІРѕРЅРёРј РЅР° " + phoneEl.value + ".";
+        }
+        if (btn) { btn.disabled = false; btn.textContent = "РћС‚РїСЂР°РІРёС‚СЊ Р·Р°СЏРІРєСѓ"; }
+        quickForm.reset();
+      }, 600);
+    });
+  }
+
+  /* ---------- Р’РёРґР¶РµС‚С‹ В«Р§С‚Рѕ РІС…РѕРґРёС‚ РІ РЅР°С€Рё СѓР±РѕСЂРєРёВ» ---------- */
+  $$(".clean-widget").forEach(function (widget) {
+    widget.addEventListener("click", function () {
+      var isOpen = widget.classList.toggle("open");
+    });
+  });
+});
