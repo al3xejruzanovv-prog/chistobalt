@@ -4309,6 +4309,10 @@ body {
   color: var(--green);
 }
 
+[data-theme="dark"] .calc-quick__head .overline {
+  color: var(--green);
+}
+
 @media (max-width: 760px) {
   .included__body {
     grid-template-columns: 1fr;
