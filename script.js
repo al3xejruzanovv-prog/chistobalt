@@ -49,30 +49,6 @@
     });
   }
 
-  /* ---------- Вкладки «Что входит в уборку» ---------- */
-  $$(".included__tab").forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      var root = tab.closest(".included");
-      if (!root) return;
-
-      $$(".included__tab", root).forEach(function (t) {
-        var isActive = t === tab;
-        t.classList.toggle("is-active", isActive);
-        t.setAttribute("aria-selected", String(isActive));
-      });
-
-      $$(".included__panel", root).forEach(function (panel) {
-        var show = panel.id === tab.getAttribute("data-panel");
-        panel.classList.toggle("is-active", show);
-        if (show) {
-          panel.removeAttribute("hidden");
-        } else {
-          panel.setAttribute("hidden", "");
-        }
-      });
-    });
-  });
-
   /* ---------- Маска телефона (форма на контактах + калькулятор) ---------- */
   function bindPhoneMask(input) {
     if (!input) return;
@@ -100,6 +76,7 @@
 
   bindPhoneMask($("#leadPhone"));
   bindPhoneMask($("#calcPhone"));
+  bindPhoneMask($("#quickPhone"));
 
   /* ---------- Калькулятор на главной ---------- */
   var calcForm = $("#calcForm");
@@ -247,6 +224,7 @@
   var formError = $("#formError");
   var consent = $("#leadConsent");
   var leadName = $("#leadName");
+  var phone = $("#leadPhone");
   var submitBtn = leadForm ? $('button[type="submit"]', leadForm) : null;
 
   function clearError() {
@@ -409,7 +387,7 @@
   }
 
 
-  /* ---------- Р‘С‹СЃС‚СЂС‹Р№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РЅР° РіР»Р°РІРЅРѕР№ ---------- */
+  /* ---------- Быстрый калькулятор на главной ---------- */
   var quickForm = $("#calcQuickForm");
   var quickMsg = $("#calcQuickMsg");
   if (quickForm) {
@@ -419,30 +397,36 @@
       var typeSel = $("#quickType");
       var roomsSel = $("#quickRooms");
       var phoneEl = $("#quickPhone");
+      var consentEl = $("#quickConsent");
       var digits = phoneEl ? phoneEl.value.replace(/\D/g, "") : "";
       if (!typeSel || !roomsSel || !phoneEl) return;
       if (digits.length !== 11) {
-        if (quickMsg) quickMsg.textContent = "РЈРєР°Р¶РёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РІ С„РѕСЂРјР°С‚Рµ +7 (___) ___-__-__.";
+        if (quickMsg) quickMsg.textContent = "Укажите, пожалуйста, номер телефона в формате +7 (___) ___-__-__.";
         phoneEl.focus();
         return;
       }
+      if (consentEl && !consentEl.checked) {
+        if (quickMsg) quickMsg.textContent = "Отметьте согласие на обработку персональных данных.";
+        consentEl.focus();
+        return;
+      }
       var btn = $("button[type='submit']", quickForm);
-      if (btn) { btn.disabled = true; btn.textContent = "РћС‚РїСЂР°РІР»СЏРµРјвЂ¦"; }
+      if (btn) { btn.disabled = true; btn.textContent = "Отправляем…"; }
       window.setTimeout(function () {
         if (quickMsg) {
           quickMsg.style.color = "var(--green-dark)";
-          quickMsg.textContent = "Р—Р°СЏРІРєР° РїСЂРёРЅСЏС‚Р°: " + typeSel.options[typeSel.selectedIndex].text + ", " + roomsSel.options[roomsSel.selectedIndex].text + ". РњС‹ РїРµСЂРµР·РІРѕРЅРёРј РЅР° " + phoneEl.value + ".";
+          quickMsg.textContent = "Заявка принята: " + typeSel.options[typeSel.selectedIndex].text + ", " + roomsSel.options[roomsSel.selectedIndex].text + ". Мы перезвоним на " + phoneEl.value + ".";
         }
-        if (btn) { btn.disabled = false; btn.textContent = "РћС‚РїСЂР°РІРёС‚СЊ Р·Р°СЏРІРєСѓ"; }
+        if (btn) { btn.disabled = false; btn.textContent = "Отправить заявку"; }
         quickForm.reset();
       }, 600);
     });
   }
 
-  /* ---------- Р’РёРґР¶РµС‚С‹ В«Р§С‚Рѕ РІС…РѕРґРёС‚ РІ РЅР°С€Рё СѓР±РѕСЂРєРёВ» ---------- */
+  /* ---------- Виджеты «Что входит в наши уборки» ---------- */
   $$(".clean-widget").forEach(function (widget) {
     widget.addEventListener("click", function () {
-      var isOpen = widget.classList.toggle("open");
+      widget.classList.toggle("open");
     });
   });
-});
+})();

@@ -26,9 +26,20 @@
       </a>
 
       <nav class="nav" id="nav" aria-label="Основная навигация">
-        <a href="services.html">Услуги и цены</a>
-        <a href="about.html">О компании</a>
-        <a href="contacts.html">Контакты</a>
+        <div class="nav__main">
+          <a href="services.html">Услуги и цены</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="nav__services" aria-label="Виды уборки">
+          <a href="cleaning-regular.html">Регулярная</a>
+          <a href="cleaning-general.html">Генеральная</a>
+          <a href="cleaning-house.html">Уборка домов</a>
+          <a href="cleaning-post-renovation.html">После ремонта</a>
+          <a href="cleaning-windows.html">Мытьё окон</a>
+          <a href="cleaning-eco.html">Эко-уборка</a>
+          <a href="cleaning-office.html">Уборка офисов</a>
+        </div>
       </nav>
 
       <div class="header__phone">
@@ -60,6 +71,48 @@
             <a class="btn btn--secondary hero__btn-ghost" href="#raschet">Рассчитать онлайн</a>
           </div>
           <p class="hero__note">Стоимость согласуем до начала работ. Работаем только в Калининграде — за город и в область не выезжаем.</p>
+        </div>
+        <div class="hero__calc">
+          <div class="calc-quick" id="quick">
+            <div class="calc-quick__head">
+              <span class="overline">Быстрый расчёт</span>
+              <h3>Рассчитайте уборку за минуту</h3>
+            </div>
+            <form id="calcQuickForm" novalidate>
+              <div class="calc-quick__field">
+                <label for="quickType">Тип уборки</label>
+                <select id="quickType" name="type">
+                  <option value="general">Генеральная уборка</option>
+                  <option value="regular">Регулярная уборка</option>
+                  <option value="house">Уборка дома / коттеджа</option>
+                  <option value="post-renovation">Уборка после ремонта</option>
+                  <option value="windows">Мытьё окон</option>
+                  <option value="eco">Эко уборка</option>
+                  <option value="office">Уборка офиса</option>
+                </select>
+              </div>
+              <div class="calc-quick__field">
+                <label for="quickRooms">Количество комнат</label>
+                <select id="quickRooms" name="rooms">
+                  <option value="1">1 комната</option>
+                  <option value="2">2 комнаты</option>
+                  <option value="3">3 комнаты</option>
+                  <option value="4">4 комнаты</option>
+                  <option value="5">5 комнат</option>
+                </select>
+              </div>
+              <div class="calc-quick__field">
+                <label for="quickPhone">Телефон</label>
+                <input type="tel" id="quickPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+              </div>
+              <label class="calc-quick__consent">
+                <input type="checkbox" id="quickConsent">
+                <span>Согласен(на) с <a href="privacy.html#consent">обработкой персональных данных</a></span>
+              </label>
+              <button class="btn btn--primary" type="submit">Отправить заявку</button>
+            </form>
+            <p id="calcQuickMsg" style="margin-top:10px;font-size:13px;color:var(--muted);text-align:center;"></p>
+          </div>
         </div>
       </div>
     </section>
@@ -187,132 +240,165 @@
           <p class="section__sub">База, из которой собирается любая заявка. Точный список работ по вашей площади и состоянию помещения обсуждаем до выезда, чтобы цена была понятной.</p>
         </div>
 
-        <div class="included">
-          <div class="included__tabs" role="tablist" aria-label="Помещения">
-            <button class="included__tab is-active" type="button" role="tab" id="incTabRooms" aria-selected="true" aria-controls="incRooms" data-panel="incRooms">Комнаты</button>
-            <button class="included__tab" type="button" role="tab" id="incTabKitchen" aria-selected="false" aria-controls="incKitchen" data-panel="incKitchen">Кухня</button>
-            <button class="included__tab" type="button" role="tab" id="incTabBath" aria-selected="false" aria-controls="incBath" data-panel="incBath">Ванная и санузел</button>
-            <button class="included__tab" type="button" role="tab" id="incTabHall" aria-selected="false" aria-controls="incHall" data-panel="incHall">Прихожая</button>
-          </div>
+        <div class="included included--accordion">
+          <details class="included__item" open>
+            <summary>
+              <span class="included__num">01</span>
+              <span class="included__name">Комнаты</span>
+              <span class="included__meta">Пыль, полы, ковры, порядок</span>
+            </summary>
+            <div class="included__body">
+              <figure class="included__photo">
+                <img src="assets/hero-apartment.jpg" alt="Светлая комната после уборки" loading="lazy">
+              </figure>
+              <ul class="worklist">
+                <li>
+                  <details>
+                    <summary>Пыль на доступных поверхностях</summary>
+                    <div class="worklist__text">Протираем полки, столы, подоконники и другие открытые поверхности. Отдельные позиции — мытьё люстр, техники и окон.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Полы и плинтусы</summary>
+                    <div class="worklist__text">Пропылесосим и вымоем полы, включая плинтусы и углы. Мебель по согласованию можно аккуратно отодвинуть для уборки отдельных зон.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Ковры и мебель снаружи</summary>
+                    <div class="worklist__text">Пропылесосим ковры и мягкую мебель с внешней стороны. Глубокая чистка обивки — отдельная услуга, обсуждается при заявке.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Мусор и мелкий порядок</summary>
+                    <div class="worklist__text">Соберём мусор и вынесем мешки, заправим кровати, сложим по местам вещи, где это возможно.</div>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </details>
 
-          <div class="included__panel is-active" id="incRooms" role="tabpanel" aria-labelledby="incTabRooms">
-            <ul class="worklist">
-              <li>
-                <details>
-                  <summary>Пыль на доступных поверхностях</summary>
-                  <div class="worklist__text">Протираем полки, столы, подоконники и другие открытые поверхности. Отдельные позиции — мытьё люстр, техники и окон.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Полы и плинтусы</summary>
-                  <div class="worklist__text">Пропылесосим и вымоем полы, включая плинтусы и углы. Мебель по согласованию можно аккуратно отодвинуть для уборки отдельных зон.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Ковры и мебель снаружи</summary>
-                  <div class="worklist__text">Пропылесосим ковры и мягкую мебель с внешней стороны. Глубокая чистка обивки — отдельная услуга, обсуждается при заявке.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Мусор и мелкий порядок</summary>
-                  <div class="worklist__text">Соберём мусор и вынесем мешки, заправим кровати, сложим по местам вещи, где это возможно.</div>
-                </details>
-              </li>
-            </ul>
-          </div>
+          <details class="included__item">
+            <summary>
+              <span class="included__num">02</span>
+              <span class="included__name">Кухня</span>
+              <span class="included__meta">Плита, фасады, техника</span>
+            </summary>
+            <div class="included__body">
+              <figure class="included__photo">
+                <img src="assets/clean-room.jpg" alt="Чистая кухня после уборки" loading="lazy">
+              </figure>
+              <ul class="worklist">
+                <li>
+                  <details>
+                    <summary>Поверхности и фасады</summary>
+                    <div class="worklist__text">Отмоем рабочую зону, фасады гарнитура снаружи, стол и подоконник от пыли и привычных загрязнений.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Плита и раковина</summary>
+                    <div class="worklist__text">Чистим плиту, варочную панель и раковину. Сильные застарелые загрязнения уточняются заранее — от этого зависит время и цена.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Техника внутри и снаружи</summary>
+                    <div class="worklist__text">Снаружи протираем всю технику. Мытьё холодильника, духовки, микроволновой печи и вытяжки внутри — отдельные позиции прайса.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Мусор и пол</summary>
+                    <div class="worklist__text">Меняем мешок в урне, убираем мусор, пылесосим и моем пол, включая зону под кухонным гарнитуром по доступности.</div>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </details>
 
-          <div class="included__panel" id="incKitchen" role="tabpanel" aria-labelledby="incTabKitchen" hidden>
-            <ul class="worklist">
-              <li>
-                <details>
-                  <summary>Поверхности и фасады</summary>
-                  <div class="worklist__text">Отмоем рабочую зону, фасады гарнитура снаружи, стол и подоконник от пыли и привычных загрязнений.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Плита и раковина</summary>
-                  <div class="worklist__text">Чистим плиту, варочную панель и раковину. Сильные застарелые загрязнения уточняются заранее — от этого зависит время и цена.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Техника внутри и снаружи</summary>
-                  <div class="worklist__text">Снаружи протираем всю технику. Мытьё холодильника, духовки, микроволновой печи и вытяжки внутри — отдельные позиции прайса.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Мусор и пол</summary>
-                  <div class="worklist__text">Меняем мешок в урне, убираем мусор, пылесосим и моем пол, включая зону под кухонным гарнитуром по доступности.</div>
-                </details>
-              </li>
-            </ul>
-          </div>
+          <details class="included__item">
+            <summary>
+              <span class="included__num">03</span>
+              <span class="included__name">Ванная и санузел</span>
+              <span class="included__meta">Сантехника, плитка, зеркала</span>
+            </summary>
+            <div class="included__body">
+              <figure class="included__photo">
+                <img src="assets/clean-room.jpg" alt="Чистая ванная комната после уборки" loading="lazy">
+              </figure>
+              <ul class="worklist">
+                <li>
+                  <details>
+                    <summary>Сантехника</summary>
+                    <div class="worklist__text">Отмываем ванную или душевую, чистим унитаз и смесители до блеска. Глубокая уборка санузла — отдельная позиция прайса.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Плитка и зеркала</summary>
+                    <div class="worklist__text">Протираем кафель от налёта, моем зеркала и стеклянные поверхности без разводов.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Порядок на полках</summary>
+                    <div class="worklist__text">Расставим аккуратно флаконы и полотенца. Каждая вещь остаётся на своём месте или там, где вы укажете.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Мусор и пол</summary>
+                    <div class="worklist__text">Меняем мешок, выносим мусор, моем пол и плинтусы, включая зону под стиральной машиной и раковиной.</div>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </details>
 
-          <div class="included__panel" id="incBath" role="tabpanel" aria-labelledby="incTabBath" hidden>
-            <ul class="worklist">
-              <li>
-                <details>
-                  <summary>Сантехника</summary>
-                  <div class="worklist__text">Отмываем ванную или душевую, чистим унитаз и смесители до блеска. Глубокая уборка санузла — отдельная позиция прайса.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Плитка и зеркала</summary>
-                  <div class="worklist__text">Протираем кафель от налёта, моем зеркала и стеклянные поверхности без разводов.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Порядок на полках</summary>
-                  <div class="worklist__text">Расставим аккуратно флаконы и полотенца. Каждая вещь остаётся на своём месте или там, где вы укажете.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Мусор и пол</summary>
-                  <div class="worklist__text">Меняем мешок, выносим мусор, моем пол и плинтусы, включая зону под стиральной машиной и раковиной.</div>
-                </details>
-              </li>
-            </ul>
-          </div>
-
-          <div class="included__panel" id="incHall" role="tabpanel" aria-labelledby="incTabHall" hidden>
-            <ul class="worklist">
-              <li>
-                <details>
-                  <summary>Зеркала и двери</summary>
-                  <div class="worklist__text">Моем зеркала, протираем дверные ручки и полотна дверей, выключатели.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Обувь и вещи</summary>
-                  <div class="worklist__text">Аккуратно расставим обувь и разложим верхнюю одежду там, где у вас принято хранить.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Верхние поверхности</summary>
-                  <div class="worklist__text">Убираем пыль с антресолей и верхних полок по доступности, протираем стены от следов пыли.</div>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Пол с ковриком</summary>
-                  <div class="worklist__text">Пропылесосим и вымоем пол, вытряхнем или пропылесосим входной коврик.</div>
-                </details>
-              </li>
-            </ul>
-          </div>
+          <details class="included__item">
+            <summary>
+              <span class="included__num">04</span>
+              <span class="included__name">Прихожая</span>
+              <span class="included__meta">Двери, обувь, пол</span>
+            </summary>
+            <div class="included__body">
+              <figure class="included__photo">
+                <img src="assets/hero-apartment.jpg" alt="Прихожая после уборки" loading="lazy">
+              </figure>
+              <ul class="worklist">
+                <li>
+                  <details>
+                    <summary>Зеркала и двери</summary>
+                    <div class="worklist__text">Моем зеркала, протираем дверные ручки и полотна дверей, выключатели.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Обувь и вещи</summary>
+                    <div class="worklist__text">Аккуратно расставим обувь и разложим верхнюю одежду там, где у вас принято хранить.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Верхние поверхности</summary>
+                    <div class="worklist__text">Убираем пыль с антресолей и верхних полок по доступности, протираем стены от следов пыли.</div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Пол с ковриком</summary>
+                    <div class="worklist__text">Пропылесосим и вымоем пол, вытряхнем или пропылесосим входной коврик.</div>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </details>
         </div>
 
-        <p class="included__note">Запахи, следы пожара, уборка после мероприятий и «сложные» помещения оцениваются отдельно — прикладывайте примечания к заявке, обсудим заранее.</p>
+                <p class="included__note">Запахи, следы пожара, уборка после мероприятий и «сложные» помещения оцениваются отдельно — прикладывайте примечания к заявке, обсудим заранее.</p>
       </div>
     </section>
 
@@ -431,55 +517,7 @@
       </div>
     </section>
 
-    <!-- ============ БЫСТРЫЙ КАЛЬКУЛЯТОР НА ГЛАВНОЙ (квадрат, 3 поля) ============ -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section__head section__head--row">
-          <div>
-            <span class="overline">Онлайн-расчёт</span>
-            <h2>Рассчитайте уборку за минуту</h2>
-            <p class="section__sub">Выберите тип уборки, количество комнат и оставьте телефон — перезвоним и назовём цену.</p>
-          </div>
-        </div>
-
-        <div class="calc-quick">
-          <div class="calc-quick__head">
-            <span class="overline">Быстрый расчёт</span>
-            <h3>Онлайн-калькулятор уборки</h3>
-          </div>
-          <form id="calcQuickForm" novalidate>
-            <div class="calc-quick__field">
-              <label for="quickType">Тип уборки</label>
-              <select id="quickType" name="type">
-                <option value="general">Генеральная уборка</option>
-                <option value="regular">Регулярная уборка</option>
-                <option value="house">Уборка дома / коттеджа</option>
-                <option value="post-renovation">Уборка после ремонта</option>
-                <option value="windows">Мытьё окон</option>
-                <option value="eco">Эко уборка</option>
-                <option value="office">Уборка офиса</option>
-              </select>
-            </div>
-            <div class="calc-quick__field">
-              <label for="quickRooms">Количество комнат</label>
-              <select id="quickRooms" name="rooms">
-                <option value="1">1 комната</option>
-                <option value="2">2 комнаты</option>
-                <option value="3">3 комнаты</option>
-                <option value="4">4 комнаты</option>
-                <option value="5">5 комнат</option>
-              </select>
-            </div>
-            <div class="calc-quick__field">
-              <label for="quickPhone">Телефон</label>
-              <input type="tel" id="quickPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
-            </div>
-            <button class="btn btn--primary" type="submit">Отправить заявку</button>
-          </form>
-          <p id="calcQuickMsg" style="margin-top:10px;font-size:13px;color:var(--muted);text-align:center;"></p>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- ============ ЧТО ВХОДИТ В НАШИ УБОРКИ — 4 ВИДЖЕТА ============ -->
     <section class="section clean-includes">
@@ -523,7 +561,7 @@
                 <li>Мелкий порядок: вещи на места</li>
                 <li>Оптимально для поддержания чистоты</li>
               </ul>
-              <p class="clean-widget__hint">От 2 часов · под supportive-уборку</p>
+              <p class="clean-widget__hint">От 2 часов · для поддержания чистоты</p>
             </div>
           </article>
 
@@ -559,7 +597,7 @@
                 <li>Вынос мусора и замена пакетов в урнах</li>
                 <li>Пыль с техники, полок и подоконников</li>
               </ul>
-              <p class="clean-widget__hint">130 ₽ / м² · по графуксу помещения</p>
+              <p class="clean-widget__hint">130 ₽ / м² · по площади помещения</p>
             </div>
           </article>
         </div>

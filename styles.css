@@ -4004,3 +4004,322 @@ body {
     font-size: clamp(22px, 2.8vw, 30px);
   }
 }
+
+/* =========================================================
+   Навигация: кнопки видов уборки под основными ссылками
+   ========================================================= */
+
+.nav {
+  flex: 1 0 100%;
+  order: 10;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  margin-left: 0;
+}
+
+.header__inner {
+  flex-wrap: wrap;
+  row-gap: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header__phone {
+  margin-left: auto;
+}
+
+.nav__main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav__services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.nav__services a {
+  padding: 3px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--green-dark);
+  background: var(--green-soft);
+  border: 0;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav__services a:hover {
+  background: var(--green);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .nav__services a {
+  background: rgba(70, 200, 220, 0.14);
+  color: var(--green);
+}
+
+[data-theme="dark"] .nav__services a:hover {
+  background: var(--green);
+  color: #0b1216;
+}
+
+@media (max-width: 1020px) {
+  .nav__main {
+    gap: 18px;
+  }
+
+  .nav__services a {
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 1020px) and (min-width: 901px) {
+  .header__cta {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    align-items: stretch;
+  }
+
+  .nav__main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav__services {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav__services a {
+    padding: 13px 0;
+    font-size: 14.5px;
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav__services a:hover,
+  [data-theme="dark"] .nav__services a:hover {
+    background: transparent;
+    color: var(--green);
+  }
+
+  [data-theme="dark"] .nav__services a {
+    background: transparent;
+  }
+}
+
+/* =========================================================
+   Hero: быстрый калькулятор в правой колонке
+   ========================================================= */
+
+.hero--photo .hero__grid {
+  align-items: center;
+}
+
+.hero__calc {
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+}
+
+.hero__calc .calc-quick {
+  max-width: none;
+}
+
+.calc-quick__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.calc-quick__consent input {
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+.calc-quick__consent a {
+  color: var(--green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .hero__calc {
+    max-width: 480px;
+    justify-self: start;
+  }
+}
+
+/* =========================================================
+   «Что входит»: аккордеон с фото-шторкой
+   ========================================================= */
+
+.included--accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.included__item {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.included__item[open] {
+  border-color: var(--green);
+}
+
+.included__item > summary {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 18px 56px 18px 20px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.15s ease;
+}
+
+.included__item > summary:hover {
+  color: var(--green);
+}
+
+.included__item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.included__item > summary::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--green);
+  border-top: 0;
+  border-left: 0;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.included__item[open] > summary::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+.included__num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--green);
+}
+
+.included__meta {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.included__body {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 22px;
+  padding: 0 20px 22px;
+}
+
+.included__photo {
+  position: relative;
+  margin: 0;
+  min-height: 190px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--green-soft);
+}
+
+.included__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: curtain-reveal 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes curtain-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: scale(1.04);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: scale(1);
+  }
+}
+
+.included__body .worklist {
+  padding: 0;
+}
+
+[data-theme="dark"] .included__item {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--card);
+}
+
+[data-theme="dark"] .included__item > summary {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .included__meta {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .calc-quick__consent {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="dark"] .calc-quick__consent a {
+  color: var(--green);
+}
+
+@media (max-width: 760px) {
+  .included__body {
+    grid-template-columns: 1fr;
+  }
+
+  .included__photo {
+    min-height: 170px;
+    max-height: 220px;
+  }
+
+  .included__meta {
+    display: none;
+  }
+}
