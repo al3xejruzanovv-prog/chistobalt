@@ -1,5 +1,5 @@
 /* =========================================================
-   ЧистоБалт — клининг в Калининграде
+   Дыхание Балтики — клининг в Калининграде
    Оформление: спокойное, «бумажное», без глянца
    ========================================================= */
 
@@ -1992,8 +1992,8 @@ input[type="range"]::-moz-range-thumb {
 
 @media (max-width: 900px) {
   .nav {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
     z-index: 55;
@@ -2001,12 +2001,13 @@ input[type="range"]::-moz-range-thumb {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    max-height: 100dvh;
-    padding: 90px 24px 24px;
+    max-height: calc(100dvh - 100%);
+    padding: 4px 24px 20px;
     background: var(--paper);
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 24px 40px -28px rgba(8, 16, 20, 0.45);
     overflow-y: auto;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -4006,7 +4007,7 @@ body {
 }
 
 /* =========================================================
-   Навигация: кнопки видов уборки под основными ссылками
+   Шапка: основные ссылки и кнопки видов уборки справа
    ========================================================= */
 
 .nav {
@@ -4032,17 +4033,21 @@ body {
 .nav__main {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 24px;
 }
 
-.nav__services {
+.header__services {
   display: flex;
+  flex: 1 0 100%;
+  order: 11;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 6px;
+  margin-top: 2px;
 }
 
-.nav__services a {
+.header__services a {
   padding: 3px 11px;
   font-size: 11.5px;
   font-weight: 600;
@@ -4055,17 +4060,17 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.nav__services a:hover {
+.header__services a:hover {
   background: var(--green);
   color: #ffffff;
 }
 
-[data-theme="dark"] .nav__services a {
+[data-theme="dark"] .header__services a {
   background: rgba(70, 200, 220, 0.14);
   color: var(--green);
 }
 
-[data-theme="dark"] .nav__services a:hover {
+[data-theme="dark"] .header__services a:hover {
   background: var(--green);
   color: #0b1216;
 }
@@ -4075,7 +4080,7 @@ body {
     gap: 18px;
   }
 
-  .nav__services a {
+  .header__services a {
     padding: 2px 8px;
     font-size: 11px;
   }
@@ -4098,31 +4103,49 @@ body {
     gap: 0;
   }
 
-  .nav__services {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--line);
+  /* Кнопки видов уборки всегда на виду: одна строка с прокруткой вбок */
+  .header__services {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 8px;
+    margin: 4px -24px 0;
+    padding: 2px 24px 6px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .nav__services a {
-    padding: 13px 0;
-    font-size: 14.5px;
-    background: transparent;
-    border-radius: 0;
-    border-bottom: 1px solid var(--line);
+  .header__services::-webkit-scrollbar {
+    display: none;
   }
 
-  .nav__services a:hover,
-  [data-theme="dark"] .nav__services a:hover {
-    background: transparent;
-    color: var(--green);
+  .header__services a {
+    flex: 0 0 auto;
+    padding: 7px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    background: var(--green-soft);
+    border-radius: 999px;
   }
 
-  [data-theme="dark"] .nav__services a {
-    background: transparent;
+  [data-theme="dark"] .header__services a {
+    background: rgba(70, 200, 220, 0.14);
+  }
+}
+
+@media (max-width: 700px) {
+  .header__services {
+    margin-left: -18px;
+    margin-right: -18px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo__name {
+    font-size: 20px;
   }
 }
 
@@ -4325,5 +4348,200 @@ body {
 
   .included__meta {
     display: none;
+  }
+}
+
+/* =========================================================
+   Модальное окно заказа: выбор платформы и текст сообщения
+   ========================================================= */
+
+html.is-modal-open,
+html.is-modal-open body {
+  overflow: hidden;
+}
+
+.order-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.order-modal[hidden] {
+  display: none;
+}
+
+.order-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 16, 20, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.order-modal__card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: 28px 26px 24px;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px -30px rgba(8, 16, 20, 0.55);
+}
+
+.order-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.order-modal__close:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.order-modal__title {
+  margin: 6px 0 8px;
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.order-modal__sub {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.order-modal__platforms {
+  display: grid;
+  gap: 10px;
+}
+
+.platform {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.platform:hover {
+  transform: translateY(-1px);
+  border-color: var(--green);
+}
+
+.platform svg {
+  flex: 0 0 auto;
+}
+
+.platform--tg svg {
+  color: #229ed9;
+}
+
+.platform--wa svg {
+  color: #25d366;
+}
+
+.platform--call svg {
+  color: var(--green);
+}
+
+.order-modal__hint {
+  margin: 16px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.order-modal__hint a {
+  color: var(--green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.order-modal__text {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--green-soft);
+  border: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.order-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.order-modal__actions .btn {
+  flex: 1 1 auto;
+}
+
+.order-modal__copy,
+.order-modal__back {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.order-modal__copy:hover,
+.order-modal__back:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+[data-theme="dark"] .order-modal__hint a {
+  color: var(--green);
+}
+
+@media (max-width: 560px) {
+  .order-modal {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .order-modal__card {
+    max-width: none;
+    padding: 24px 18px 20px;
+    border-radius: 20px;
+    max-height: calc(100dvh - 24px);
+  }
+
+  .order-modal__actions .btn {
+    flex: 1 1 100%;
   }
 }
